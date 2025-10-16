@@ -6,10 +6,7 @@
 <Header />
 <div class="quote-container">
   <div class="text-quote">
-    세상에 단 하나뿐인 맞춤 음원으로 당신의 프로젝트에 완성도 높은 사운드 경험을 선사합니다
-  </div>
-  <div class="text-quote">
-     오케스트라에서 락, 재즈까지 폭 넓은 장르 대응과 뮤직 프로덕션 서비스를 제공합니다
+    세상에 단 하나뿐인 맞춤 음원으로<br>당신의 프로젝트에 완성도 높은 사운드 경험을 선사합니다
   </div>
 </div>
 <div class="container">

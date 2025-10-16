@@ -40,6 +40,7 @@
       margin: 0;
       --page-width: 800px;
       background-color: #f5f3f2;
+      color: #333;
     }
   </style>
 </svelte:head>
@@ -53,10 +54,10 @@
       </button>
     </div>
     <div class="menu-items">
-      <div class="menu-item"><a href="/">Home</a></div>
-      <div class="menu-item"><a href="/about">About</a></div>
-      <div class="menu-item"><a href="/works">Works</a></div>
-      <div class="menu-item"><a href="/contact">Contact</a></div>
+      <div class="menu-item"><a href="/" onclick={() => menuHidden = true}>Home</a></div>
+      <div class="menu-item"><a href="/about" onclick={() => menuHidden = true}>About</a></div>
+      <div class="menu-item"><a href="/works" onclick={() => menuHidden = true}>Works</a></div>
+      <div class="menu-item"><a href="/contact" onclick={() => menuHidden = true}>Contact</a></div>
     </div>
   </div>
   <div class="menu-button">
