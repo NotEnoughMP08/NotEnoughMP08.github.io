@@ -13,14 +13,12 @@
 
   let menu: HTMLDivElement;
   let button: HTMLButtonElement;
-  // Close the menu when clicking outside
   function handleClickOutside(event: MouseEvent) {
     if (menuHidden && menu && button && !menu.contains(event.target as Node) && !button.contains(event.target as Node)) {
-      menuHidden = false;
+      menuHidden = true;
     }
   }
 
-  // Add event listener to handle clicks outside the menu
   onMount(() => {
     document.addEventListener('click', handleClickOutside);
     return () => {
@@ -31,11 +29,15 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'SUIT', sans-serif;
+    }
+  </style>
   <style>
     body {
       margin: 0;
-      font-family: 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
       --page-width: 800px;
       background-color: #f5f3f2;
     }
@@ -64,7 +66,6 @@
   </div>
 </div>
 {@render children?.()}
-
 
 <style>
   .navbar {
@@ -128,7 +129,7 @@
     display: none;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
     .menu {
       position: static;
       width: auto;
@@ -150,6 +151,10 @@
     }
 
     .menu-button {
+      display: none;
+    }
+
+    .menu .menu-button {
       display: none;
     }
   }

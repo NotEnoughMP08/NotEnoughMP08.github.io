@@ -14,10 +14,10 @@
       <div class="name">NEMP</div>
       <div class="description">Composer, Keyboard Player</div>
       <div class="contact">
-        <a href="https://youtube.com/@nemp" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.youtube.com/c/NEMPofficial" target="_blank" rel="noopener noreferrer">
           <i class="bi bi-youtube" style="font-size: 1.5em; color: white; margin-right: 10px;"></i>
         </a>
-        <a href="https://twitter.com/nemp" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/NotEnoughMP" target="_blank" rel="noopener noreferrer">
           <i class="bi bi-twitter" style="font-size: 1.5em; color: white; margin-right: 10px;"></i>
         </a>
       </div>
