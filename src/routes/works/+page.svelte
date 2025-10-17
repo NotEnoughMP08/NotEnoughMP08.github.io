@@ -1,6 +1,13 @@
 <script lang="ts">
   import Header from "../Header.svelte";
   import Music from "./Music.svelte";
+
+  import musics from "$lib/data/musics.json";
+
+  let songOriginal = musics.filter((music) => music.class === "song-original");
+  let songArrange = musics.filter((music) => music.class === "song-arrange");
+  let bgmOriginal = musics.filter((music) => music.class === "bgm-original");
+  let bgmArrange = musics.filter((music) => music.class === "bgm-arrange");
 </script>
 
 <Header />
@@ -9,16 +16,31 @@
   <div class="content">
     <div class="subtitle">Original</div>
     <div class="musics">
-      <Music title="Sample Song 1" subtitle="Artist 1" audioSrc="/src/lib/assets/musics/01.mp3" />
-      <Music title="Sample Song 2" subtitle="Artist 2" audioSrc="/src/lib/assets/musics/02.mp3" />
-      <Music title="Sample Song 3" subtitle="Artist 3" audioSrc="/src/lib/assets/musics/03.mp3" />
+      {#each songOriginal as music (music.title)}
+        <Music {music} />
+      {/each}
     </div>
     <div class="subtitle">Arrange</div>
+    <div class="musics">
+      {#each songArrange as music (music.title)}
+        <Music {music} />
+      {/each}
+    </div>
   </div>
   <div class="title">BGM</div>
   <div class="content">
     <div class="subtitle">Original</div>
+    <div class="musics">
+      {#each bgmOriginal as music (music.title)}
+        <Music {music} />
+      {/each}
+    </div>
     <div class="subtitle">Arrange</div>
+    <div class="musics">
+      {#each bgmArrange as music (music.title)}
+        <Music {music} />
+      {/each}
+    </div>
   </div>
 </div>
 
