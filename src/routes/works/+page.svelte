@@ -36,6 +36,47 @@
       subtitle: "Acoustic Pop"
     }
   ];
+
+  const bgmOriginalVideos = [
+    {
+      embed: "https://www.youtube.com/embed/7bd0YMP6BgQ?si=4Gi5miO7J1rbtHAC",
+      title: "Journey",
+      subtitle: "Orchestral, World"
+    },
+    {
+      embed: "https://www.youtube.com/embed/PwXO4YZT5MI?si=7vf5MVIbUdtgChR1",
+      title: "Typewriter",
+      subtitle: "Acoustic"
+    },
+    {
+      embed: "https://www.youtube.com/embed/NCrUf-pYmFY?si=vl0LDqS7Kg54dUrB",
+      title: "雪国(설국)",
+      subtitle: "Acoustic, World"
+    },
+    {
+      embed: "https://www.youtube.com/embed/CauhOsP6CRI?si=B7ZaaXpj0ljw6jfJ",
+      title: "Final Stage",
+      subtitle: "Orchestral, Epic"
+    },
+    {
+      embed: "https://www.youtube.com/embed/t8GSTUMmhv4?si=pAyHJlAr7VlBirCl",
+      title: "주간일기",
+      subtitle: "Acoustic, Piano"
+    }
+  ];
+
+  const bgmArrangeVideos = [
+    {
+      embed: "https://www.youtube.com/embed/9Ic4Xc7_Bcw?si=AoxzBZTSMYM2NNW1",
+      title: "Team LiBRA - Blue Archive ‘0k@eri’ Band Arrange cover",
+      subtitle: "R&B, Band, Instrumental"
+    },
+    {
+      embed: "https://www.youtube.com/embed/-ZPHtBoS8RQ?si=QBnXFBYecB3rZHAd&start=152",
+      title: "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab",
+      subtitle: "Jazz, Instrumental"
+    }
+  ];
 </script>
 
 <Header />
@@ -113,6 +154,28 @@
   <div class="title">{$t("works.bgm")}</div>
   <div class="content">
     <div class="subtitle">{$t("works.original")}</div>
+    {#if bgmOriginalVideos.length}
+      <div class="videos-section videos-section-before">
+        <div class="videos-grid">
+          {#each bgmOriginalVideos as video (video.embed)}
+            <div class="video-card">
+              <div class="featured-video-embed">
+                <iframe
+                  title={`BGM Original - ${video.title}`}
+                  src={video.embed}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="featured-video-info">
+                <div class="featured-video-title">{video.title}</div>
+                <div class="featured-video-subtitle">{video.subtitle}</div>
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
     <div class="media-grid">
       {#each bgmOriginal as music (music.title)}
         <div class="media-item">
@@ -121,6 +184,28 @@
       {/each}
     </div>
     <div class="subtitle">{$t("works.arrange")}</div>
+    {#if bgmArrangeVideos.length}
+      <div class="videos-section videos-section-before">
+        <div class="videos-grid">
+          {#each bgmArrangeVideos as video (video.embed)}
+            <div class="video-card">
+              <div class="featured-video-embed">
+                <iframe
+                  title={`BGM Arrange - ${video.title}`}
+                  src={video.embed}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="featured-video-info">
+                <div class="featured-video-title">{video.title}</div>
+                <div class="featured-video-subtitle">{video.subtitle}</div>
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
     <div class="media-grid">
       {#each bgmArrange as music (music.title)}
         <div class="media-item">
@@ -177,6 +262,11 @@
 
   .videos-section {
     margin-top: 16px;
+  }
+
+  .videos-section-before {
+    margin-top: 0;
+    margin-bottom: 16px;
   }
 
   .media-item {

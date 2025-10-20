@@ -292,7 +292,7 @@
 
 <style>
   :global(:root) {
-    --page-width: 800px;
+    --page-width: 1120px;
     --color-background: #f5f3f2;
     --color-text: #333333;
     --color-muted: #666666;
