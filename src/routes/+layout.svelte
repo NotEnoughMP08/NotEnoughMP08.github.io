@@ -17,6 +17,9 @@
 	let languageButton: HTMLButtonElement | null = null;
 	let languageMenu: HTMLUListElement | null = null;
 
+	const getLanguageLabel = (code: Locale) =>
+		LANG_OPTIONS.find((option) => option.code === code)?.label ?? code.toUpperCase();
+
 	const applyTheme = (value: 'light' | 'dark') => {
 		theme = value;
 
@@ -233,15 +236,10 @@
         aria-haspopup="listbox"
         aria-expanded={isLanguageMenuOpen}
         aria-controls="language-menu"
+        aria-label={$t('language.srLabel')}
         on:click={toggleLanguageMenu}
         bind:this={languageButton}>
-        <span class="language-icon" aria-hidden="true">🌐</span>
-        <span class="language-label">{$t(`language.${$locale}`)}</span>
-        <span class={`language-caret${isLanguageMenuOpen ? ' open' : ''}`} aria-hidden="true">
-          <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.41 0.59 6 5.17l4.59-4.58L12 2 6 8 0 2z" />
-          </svg>
-        </span>
+        <span class="language-label">{getLanguageLabel($locale)}</span>
       </button>
       {#if isLanguageMenuOpen}
         <ul
@@ -263,7 +261,7 @@
                 data-option={option.code}
                 id={`language-option-${option.code}`}
                 on:click={() => handleLanguageChange(option.code)}>
-                <span>{$t(`language.${option.code}`)}</span>
+                <span>{option.label}</span>
                 {#if $locale === option.code}
                   <span class="language-option-check" aria-hidden="true">
                     <svg viewBox="0 0 12 9" xmlns="http://www.w3.org/2000/svg">
@@ -304,6 +302,11 @@
     --color-toggle-bg: rgba(0, 0, 0, 0.05);
     --color-toggle-border: rgba(0, 0, 0, 0.1);
     --color-toggle-icon: #333333;
+    --color-surface-contrast: rgba(255, 255, 255, 0.95);
+    --color-border-strong: rgba(0, 0, 0, 0.12);
+    --language-toggle-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(238, 238, 238, 0.78));
+    --language-toggle-border: rgba(0, 0, 0, 0.08);
+    --language-toggle-shadow: rgba(15, 17, 21, 0.18);
     color-scheme: light;
   }
 
@@ -317,6 +320,11 @@
     --color-toggle-bg: rgba(255, 255, 255, 0.08);
     --color-toggle-border: rgba(255, 255, 255, 0.12);
     --color-toggle-icon: #f0f3f9;
+    --color-surface-contrast: rgba(40, 48, 64, 0.92);
+    --color-border-strong: rgba(255, 255, 255, 0.16);
+    --language-toggle-bg: linear-gradient(135deg, rgba(51, 61, 82, 0.94), rgba(32, 41, 60, 0.86));
+    --language-toggle-border: rgba(255, 255, 255, 0.18);
+    --language-toggle-shadow: rgba(4, 8, 20, 0.6);
     color-scheme: dark;
   }
 
@@ -385,28 +393,25 @@
     position: relative;
   }
 
-  .language-dropdown.open .language-toggle-button {
-    border-color: var(--color-accent);
-  }
-
   .language-toggle-button {
     display: flex;
     align-items: center;
     gap: 8px;
     border-radius: 9999px;
-    border: 1px solid var(--color-border);
-    background: var(--color-surface);
+    border: 1px solid var(--language-toggle-border);
+    background: var(--language-toggle-bg);
     color: var(--color-text);
-    padding: 6px 16px;
+    padding: 8px 20px;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(15, 17, 21, 0.12);
+    box-shadow: 0 18px 34px var(--language-toggle-shadow);
     backdrop-filter: blur(14px);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
   }
 
   .language-toggle-button:hover {
     transform: translateY(-1px);
     border-color: var(--color-accent);
+    box-shadow: 0 24px 40px var(--language-toggle-shadow);
   }
 
   .language-toggle-button:focus-visible {
@@ -414,31 +419,31 @@
     outline-offset: 2px;
   }
 
-  .language-icon {
-    font-size: 1.1rem;
-    line-height: 1;
-  }
-
   .language-label {
     font-size: 0.85rem;
     font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
-  .language-caret {
+  .language-toggle-button::after {
+    content: '';
     display: inline-flex;
-    width: 12px;
-    height: 8px;
+    width: 0;
+    height: 0;
+    margin-left: 12px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid currentColor;
     transition: transform 0.2s ease;
+    transform: translateY(2px);
   }
 
-  .language-caret svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
+  .language-dropdown.open .language-toggle-button {
+    border-color: var(--color-accent);
   }
 
-  .language-caret.open {
-    transform: rotate(180deg);
+  .language-dropdown.open .language-toggle-button::after {
+    transform: rotate(180deg) translateY(-1px);
   }
 
   .language-menu {
