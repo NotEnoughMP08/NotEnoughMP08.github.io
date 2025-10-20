@@ -343,12 +343,14 @@
     padding: 10px;
     max-width: var(--page-width);
     margin: 0 auto;
+    min-height: 64px;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-wrap: nowrap;
   }
 
   .nemp {
@@ -391,6 +393,7 @@
 
   .language-dropdown {
     position: relative;
+    flex-shrink: 0;
   }
 
   .language-toggle-button {
@@ -406,6 +409,8 @@
     box-shadow: 0 18px 34px var(--language-toggle-shadow);
     backdrop-filter: blur(14px);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    min-height: 40px;
   }
 
   .language-toggle-button:hover {
@@ -423,6 +428,7 @@
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.01em;
+    white-space: nowrap;
   }
 
   .language-toggle-button::after {
