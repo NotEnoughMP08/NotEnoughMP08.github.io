@@ -63,6 +63,14 @@
     audioVolume = value;
   }
 
+  function showVolume() {
+    // Implementation for showing volume control
+  }
+
+  function hideVolume() {
+    // Implementation for hiding volume control
+  }
+
   const handleLoadedMetadata = () => {
     if (!audio) {
       return;
