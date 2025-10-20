@@ -121,7 +121,7 @@
       </div>
     {/if}
     <div class="subtitle">{$t("works.arrange")}</div>
-    <div class="media-grid">
+    <div class="media-grid song-arrange-grid">
       {#each songArrange as music (music.title)}
         <div class="media-item">
           <Music {music} />
@@ -224,19 +224,50 @@
   }
 
   .title {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
   }
 
   .subtitle {
-    font-size: 1.5em;
-    font-weight: semi-bold;
-    margin-bottom: 5px;
+    font-size: 1.75em;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 0.015em;
   }
 
   .content {
-    margin-bottom: 40px;
+    margin-bottom: 56px;
+  }
+
+  .content .media-grid,
+  .content .media-featured,
+  .videos-section,
+  .videos-section-before {
+    margin-top: 32px;
+  }
+
+  .content .media-featured + .subtitle,
+  .content .videos-section + .subtitle,
+  .content .videos-section-before + .subtitle,
+  .content .media-grid + .subtitle {
+    margin-top: 36px;
+  }
+
+  .content .subtitle + .media-grid,
+  .content .subtitle + .media-featured,
+  .content .subtitle + .videos-section,
+  .content .subtitle + .videos-section-before {
+    margin-top: 24px;
+  }
+
+  .content .subtitle + .media-grid.song-arrange-grid {
+    margin-top: 24px;
+  }
+
+  .media-grid.song-arrange-grid + .videos-section {
+    margin-top: 18px;
   }
 
   .media-grid {
@@ -258,10 +289,6 @@
     align-self: start;
     width: 100%;
     max-width: min(100%, calc((100% - 20px) / 2));
-  }
-
-  .videos-section {
-    margin-top: 16px;
   }
 
   .videos-section-before {
