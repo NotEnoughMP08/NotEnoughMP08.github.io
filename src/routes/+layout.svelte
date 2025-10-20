@@ -45,22 +45,12 @@
 <div class="navbar">
   <div class="nemp">NEMP</div>
   <div class="menu" class:hidden={menuHidden} bind:this={menu}>
-    <div class="menu-button" bind:this={button}>
-      <button class="menu-icon" onclick={toggleMenu} aria-label="Close Menu">
-        <i class="bi bi-x" style="font-size: 2em; color: #333;"></i>
-      </button>
-    </div>
     <div class="menu-items">
       <div class="menu-item"><a href="/" onclick={() => menuHidden = true}>Home</a></div>
       <div class="menu-item"><a href="/about" onclick={() => menuHidden = true}>About</a></div>
       <div class="menu-item"><a href="/works" onclick={() => menuHidden = true}>Works</a></div>
       <div class="menu-item"><a href="/contact" onclick={() => menuHidden = true}>Contact</a></div>
     </div>
-  </div>
-  <div class="menu-button">
-    <button class="menu-icon" onclick={toggleMenu} aria-label="Toggle Menu" bind:this={button}>
-      <i class="bi bi-list" style="font-size: 2em; color: #333;"></i>
-    </button>
   </div>
 </div>
 {@render children?.()}
@@ -130,33 +120,30 @@
     display: none;
   }
 
-  @media (min-width: 800px) {
-    .menu {
-      position: static;
-      width: auto;
-      height: auto;
-      background-color: transparent;
-      display: flex;
-      align-items: center;
-      left: auto;
-      top: auto;
-    }
+  .menu {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    left: auto;
+    top: auto;
+  }
 
-    .menu-items {
-      flex-direction: row;
-      align-items: center;
-    }
+  .menu-items {
+    flex-direction: row;
+    align-items: center;
+  }
 
-    .menu-item {
-      padding: 0 15px;
-    }
+  .menu-item {
+    padding: 0 15px;
+  }
 
-    .menu-button {
-      display: none;
-    }
+  .menu-button {
+    display: none;
+  }
 
-    .menu .menu-button {
-      display: none;
-    }
+  .menu .menu-button {
   }
 </style>
