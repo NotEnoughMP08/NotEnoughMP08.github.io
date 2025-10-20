@@ -120,6 +120,7 @@
   .media-grid-featured {
     gap: 24px;
     margin-bottom: 24px;
+    align-items: start;
   }
 
   .media-item {
@@ -131,6 +132,10 @@
   .media-item > .featured-video {
     flex: 1 1 auto;
     height: 100%;
+  }
+
+  .media-grid-featured .media-item > :global(.music) {
+    height: auto;
   }
 
   .featured-video {
