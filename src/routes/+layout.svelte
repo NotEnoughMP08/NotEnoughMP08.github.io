@@ -10,10 +10,10 @@
 	const THEME_STORAGE_KEY = 'nemp-theme';
 
 	let { children } = $props();
-	let theme: 'light' | 'dark' = 'light';
-	let hasExplicitPreference = false;
+	let theme = $state<'light' | 'dark'>('light');
+	let hasExplicitPreference = $state(false);
 	const currentYear = new Date().getFullYear();
-	let isLanguageMenuOpen = false;
+	let isLanguageMenuOpen = $state(false);
 	let languageButton: HTMLButtonElement | null = null;
 	let languageMenu: HTMLUListElement | null = null;
 
@@ -235,9 +235,13 @@
         aria-controls="language-menu"
         on:click={toggleLanguageMenu}
         bind:this={languageButton}>
-        <i class="bi bi-translate" aria-hidden="true"></i>
-        <span>{$t(`language.${$locale}`)}</span>
-        <i class={`bi ${isLanguageMenuOpen ? 'bi-chevron-up' : 'bi-chevron-down'}`} aria-hidden="true"></i>
+        <span class="language-icon" aria-hidden="true">🌐</span>
+        <span class="language-label">{$t(`language.${$locale}`)}</span>
+        <span class={`language-caret${isLanguageMenuOpen ? ' open' : ''}`} aria-hidden="true">
+          <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.41 0.59 6 5.17l4.59-4.58L12 2 6 8 0 2z" />
+          </svg>
+        </span>
       </button>
       {#if isLanguageMenuOpen}
         <ul
@@ -261,7 +265,11 @@
                 on:click={() => handleLanguageChange(option.code)}>
                 <span>{$t(`language.${option.code}`)}</span>
                 {#if $locale === option.code}
-                  <i class="bi bi-check" aria-hidden="true"></i>
+                  <span class="language-option-check" aria-hidden="true">
+                    <svg viewBox="0 0 12 9" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.2 8.4 0 4.2 1.4 2.8l2.8 2.8L10.6 0 12 1.4z" />
+                    </svg>
+                  </span>
                 {/if}
               </button>
             </li>
@@ -406,9 +414,31 @@
     outline-offset: 2px;
   }
 
-  .language-toggle-button i:last-child {
-    font-size: 0.75rem;
-    margin-left: 2px;
+  .language-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .language-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .language-caret {
+    display: inline-flex;
+    width: 12px;
+    height: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  .language-caret svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  .language-caret.open {
+    transform: rotate(180deg);
   }
 
   .language-menu {
@@ -462,13 +492,17 @@
     color: #ffffff;
   }
 
-  .language-option i {
-    font-size: 0.85rem;
+  .language-option-check {
+    display: inline-flex;
+    width: 12px;
+    height: 9px;
     margin-left: 8px;
   }
 
-  .language-option.active i {
-    color: inherit;
+  .language-option-check svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
   }
 
   @keyframes fade-in {
