@@ -1,0 +1,63 @@
+[
+  {
+    "title": "약속의 과실",
+    "subtitle": "Promise Fruit",
+    "genre": "Epic, World",
+    "src": "/src/lib/assets/musics/Vocal.mp3",
+    "class": "song-original"
+  },
+  {
+    "title": "Title Sequence",
+    "subtitle": "Ambient",
+    "src": "/src/lib/assets/musics/01.mp3",
+    "class": "bgm-original"
+  },
+  {
+    "title": "Metal BGM",
+    "subtitle": "",
+    "src": "/src/lib/assets/musics/07.mp3",
+    "class": "bgm-original"
+  },
+  {
+    "title": "Accoustic BGM",
+    "subtitle": "",
+    "src": "/src/lib/assets/musics/03.mp3",
+    "class": "bgm-original"
+  },
+  {
+    "title": "Team LiBRA - Blue Archive ‘Signal of Abydos’ Band Arrange cover",
+    "subtitle": "Jazz Fusion, Funk, Band, Instrumental",
+    "src": "/src/lib/assets/musics/08.mp3",
+    "class": "bgm-arrange"
+  },
+  {
+    "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab Hifumi Daisuki(Jazz ver)",
+    "subtitle": "Swing, Jazz",
+    "src": "/src/lib/assets/musics/10.mp3",
+    "class": "bgm-arrange"
+  },
+  {
+    "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab Bunny Bunny Carrot Carrot (Latin Jazz Arrange)",
+    "subtitle": "Bossa Nova, Jazz",
+    "src": "/src/lib/assets/musics/11.mp3",
+    "class": "bgm-arrange"
+  },
+  {
+    "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab RE Aoharu Arrange (Jazz Fusion)",
+    "subtitle": "Jazz Fusion",
+    "src": "/src/lib/assets/musics/12.mp3",
+    "class": "bgm-arrange"
+  },
+  {
+    "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab 夢路の花 (Jazz Arrange)",
+    "subtitle": "Swing, Jazz",
+    "src": "/src/lib/assets/musics/13.mp3",
+    "class": "bgm-arrange"
+  },
+  {
+    "title": "‘NyuMoon’ Main BGM (Night Ver)",
+    "subtitle": "Acoustic, World, Ambient",
+    "src": "/src/lib/assets/musics/02.mp3",
+    "class": "bgm-original"
+  }
+]
