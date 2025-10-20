@@ -164,9 +164,9 @@
         <div class="music-audio-top-left">
         <button class="music-play-button" onclick={togglePlayAudio} aria-label="Play">
           {#if isPlaying}
-            <i class="bi bi-pause-fill" style="font-size: 1.5em; color: #333;"></i>
+            <i class="bi bi-pause-fill"></i>
           {:else}
-            <i class="bi bi-play-fill" style="font-size: 1.5em; color: #333;"></i>
+            <i class="bi bi-play-fill"></i>
           {/if}
         </button>
         <span class="music-time">{audioCurrentTime}</span> /
@@ -174,7 +174,7 @@
         </div>
         <div class="music-audio-top-right hide-mobile">
           <input type="range" min="0" max="100" value={audioVolume} onchange={changeVolume} oninput={changeVolume} class="music-volume-bar" />
-          <i class="bi bi-volume-up-fill" style="font-size: 1.5em; color: #333;" role="button" aria-label="Volume" tabindex="0"></i>
+          <i class="bi bi-volume-up-fill music-volume-icon" role="button" aria-label="Volume" tabindex="0"></i>
         </div>
       </div>
       <div class="music-audio-bar">
@@ -189,6 +189,12 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    padding: 16px;
+    background-color: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 24px rgba(15, 17, 21, 0.08);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .music-left {
@@ -207,11 +213,12 @@
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 5px;
+    color: var(--color-text);
   }
 
   .music-subtitle {
     font-size: 1em;
-    color: #666;
+    color: var(--color-muted);
     margin-bottom: 10px;
   }
 
@@ -240,13 +247,27 @@
     padding: 0;
   }
 
+  .music-play-button i {
+    font-size: 1.5em;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+  }
+
+  .music-play-button:hover i,
+  .music-play-button:focus-visible i {
+    color: var(--color-accent);
+  }
+
   .music-time, .music-duration {
     font-size: 0.9em;
-    color: #333;
+    color: var(--color-muted);
   }
 
   .music-audio-top-right {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .music-audio-bar {
@@ -261,6 +282,17 @@
     width: 100px;
   }
 
+  .music-volume-icon {
+    font-size: 1.5em;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+  }
+
+  .music-volume-icon:hover,
+  .music-volume-icon:focus-visible {
+    color: var(--color-accent);
+  }
+
   @media (max-width: 600px) {
     .hide-mobile {
       display: none;
@@ -268,6 +300,6 @@
   }
 
   input[type="range"] {
-    accent-color: #444; /* Example color */
+    accent-color: var(--color-accent);
   }
 </style>
