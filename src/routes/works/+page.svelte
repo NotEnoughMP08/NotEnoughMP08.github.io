@@ -114,8 +114,8 @@
   }
 
   .featured-song-videos {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
 
@@ -156,5 +156,11 @@
   .featured-video-subtitle {
     font-size: 1em;
     color: var(--color-muted);
+  }
+
+  @media (max-width: 600px) {
+    .featured-song-videos {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
