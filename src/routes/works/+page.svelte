@@ -21,13 +21,13 @@
   <div class="content">
     <div class="subtitle">{$t("works.original")}</div>
     {#if featuredSong}
-      <div class="media-grid media-grid-featured">
-        <div class="media-item">
+      <div class="media-featured">
+        <div class="featured-card">
           <Music music={featuredSong} />
         </div>
         {#if featuredSong.youtubeVideos?.length}
-          {#each featuredSong.youtubeVideos as video (video.embed)}
-            <div class="media-item">
+          <div class="featured-videos-grid">
+            {#each featuredSong.youtubeVideos as video (video.embed)}
               <div class="featured-video">
                 <div class="featured-video-embed">
                   <iframe
@@ -42,8 +42,8 @@
                   <div class="featured-video-subtitle">{video.subtitle}</div>
                 </div>
               </div>
-            </div>
-          {/each}
+            {/each}
+          </div>
         {/if}
       </div>
     {/if}
@@ -117,10 +117,17 @@
     align-items: stretch;
   }
 
-  .media-grid-featured {
+  .media-featured {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
-    margin-bottom: 24px;
-    align-items: start;
+    margin-bottom: 32px;
+  }
+
+  .featured-card {
+    align-self: start;
+    width: 100%;
+    max-width: min(100%, calc((100% - 20px) / 2));
   }
 
   .media-item {
@@ -128,14 +135,15 @@
     flex-direction: column;
   }
 
-  .media-item > :global(.music),
-  .media-item > .featured-video {
+  .media-item > :global(.music) {
     flex: 1 1 auto;
     height: 100%;
   }
 
-  .media-grid-featured .media-item > :global(.music) {
-    height: auto;
+  .featured-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
   }
 
   .featured-video {
@@ -181,6 +189,15 @@
   @media (max-width: 600px) {
     .media-grid {
       grid-template-columns: 1fr;
+    }
+
+    .featured-card {
+      max-width: 100%;
+    }
+
+    .featured-videos-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
   }
 </style>
