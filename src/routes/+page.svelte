@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
   import background from "$lib/assets/backgrounds/2_6099x1780.JPG";
   import profile from "$lib/assets/profile.png";
   import "bootstrap-icons/font/bootstrap-icons.css";
+  import { t } from "$lib/i18n";
 </script>
 
 <div
@@ -12,7 +13,7 @@
     <img src={profile} alt="Profile" width="150" height="150" class="profile-image" />
     <div class="text">
       <div class="name">NEMP</div>
-      <div class="description">Composer, Keyboard Player</div>
+      <div class="description">{$t("home.description")}</div>
       <div class="contact">
         <a href="https://x.com/NotEnoughMP" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
           <i class="bi bi-twitter-x" style="font-size: 1.5em; color: white; margin-right: 10px;"></i>

@@ -1,18 +1,22 @@
 <script lang="ts">
   import Header from '../Header.svelte';
   import profile from '$lib/assets/profile.png';
+  import { t, tList } from '$lib/i18n';
 
-  import works from '$lib/data/about-works.json';
+  let worksList: string[] = [];
+
+  $: {
+    worksList = $tList('about.worksList');
+  }
 </script>
 
 <Header />
 <div class="quote-container">
   <div class="text-quote">
-    당신의 이야기 속 감정과 순간을 음악으로 섬세히 그려내는 작곡가입니다.
+    {$t('about.quote1')}
   </div>
   <div class="text-quote">
-    풍부한 서사성을 담은 사운드를 기반으로 오케스트라부터 록·재즈까지<br>
-    다양한 장르를 아우르는 맞춤형 음악을 제공합니다.
+    {@html $t('about.quote2')}
   </div>
 </div>
 <div class="container">
@@ -24,20 +28,17 @@
       NEMP
     </div>
     <div class="text">
-      넥슨 ‘블루아카이브’ 페스티벌, 라이브 아이돌 그룹 ‘IHOTEU’ 라이브,<br>
-      버츄얼 유튜버 음원 제작 등 다양한 프로젝트 경험을 보유한 작곡가입니다.
+      {@html $t('about.intro1')}
     </div>
     <div class="text">
-      어쿠스틱부터 메탈, 재즈까지 장르를 넘나드는 폭 넓은 제작 경험과<br>
-      지속적인 연구 기술을 바탕으로 클라이언트의 비전을 음악적으로 실현하는<br>
-      맞춤형 솔루션을 제공합니다
+      {@html $t('about.intro2')}
     </div>
   </div>
 </div>
 <div class="container">
-  <div class="title">Work History</div>
+  <div class="title">{$t('about.workHistory')}</div>
   <ul class="text">
-    {#each works as work}
+    {#each worksList as work}
       <li>{work}</li>
     {/each}
   </ul>
@@ -82,6 +83,7 @@
     word-break: keep-all;
     margin-bottom: 15px;
     line-height: 1.6;
+    white-space: pre-line;
   }
 
   .text-name {

@@ -3,6 +3,7 @@
   import Music from "./Music.svelte";
 
   import musics from "$lib/data/musics.json";
+  import { t } from "$lib/i18n";
 
   let songOriginal = musics.filter((music) => music.class === "song-original");
   let songArrange = musics.filter((music) => music.class === "song-arrange");
@@ -12,30 +13,30 @@
 
 <Header />
 <div class="container">
-  <div class="title">Song</div>
+  <div class="title">{$t("works.song")}</div>
   <div class="content">
-    <div class="subtitle">Original</div>
+    <div class="subtitle">{$t("works.original")}</div>
     <div class="musics">
       {#each songOriginal as music (music.title)}
         <Music {music} />
       {/each}
     </div>
-    <div class="subtitle">Arrange</div>
+    <div class="subtitle">{$t("works.arrange")}</div>
     <div class="musics">
       {#each songArrange as music (music.title)}
         <Music {music} />
       {/each}
     </div>
   </div>
-  <div class="title">BGM</div>
+  <div class="title">{$t("works.bgm")}</div>
   <div class="content">
-    <div class="subtitle">Original</div>
+    <div class="subtitle">{$t("works.original")}</div>
     <div class="musics">
       {#each bgmOriginal as music (music.title)}
         <Music {music} />
       {/each}
     </div>
-    <div class="subtitle">Arrange</div>
+    <div class="subtitle">{$t("works.arrange")}</div>
     <div class="musics">
       {#each bgmArrange as music (music.title)}
         <Music {music} />

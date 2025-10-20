@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import profile from "$lib/assets/profile.png";
   import { getPlayingAudio, setPlayingAudio } from "$lib/stores/playingAudio";
+  import { t } from "$lib/i18n";
 
   let { music } = $props();
   let { title, subtitle, src } = music;
@@ -162,7 +163,11 @@
     <div class="music-audio">
       <div class="music-audio-top">
         <div class="music-audio-top-left">
-        <button class="music-play-button" onclick={togglePlayAudio} aria-label="Play">
+        <button
+          class="music-play-button"
+          type="button"
+          onclick={togglePlayAudio}
+          aria-label={isPlaying ? $t("music.pause") : $t("music.play")}>
           {#if isPlaying}
             <i class="bi bi-pause-fill"></i>
           {:else}
@@ -174,7 +179,7 @@
         </div>
         <div class="music-audio-top-right hide-mobile">
           <input type="range" min="0" max="100" value={audioVolume} onchange={changeVolume} oninput={changeVolume} class="music-volume-bar" />
-          <i class="bi bi-volume-up-fill music-volume-icon" role="button" aria-label="Volume" tabindex="0"></i>
+          <i class="bi bi-volume-up-fill music-volume-icon" role="button" aria-label={$t("music.volume")} tabindex="0"></i>
         </div>
       </div>
       <div class="music-audio-bar">

@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
   import Header from "../Header.svelte";
   import emailjs from "@emailjs/browser";
   import { onMount } from "svelte";
+  import { get } from "svelte/store";
+  import { t } from "$lib/i18n";
 
   const PUBLIC_KEY = "CAFvgQTgbDLMJh9rW";
 
@@ -13,48 +15,47 @@
   const SERVICE_ID = "NEMP.me";
   const TEMPLATE_ID = "NotEnoughMP08_Mail";
 
-  function handleSubmit(event) {
+  async function handleSubmit(event: Event) {
     event.preventDefault();
 
-    emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, event.target)
-      .then(
-        (result) => {
-          alert("이메일이 전송되었습니다!");
-          event.target.reset();
-        },
-        (error) => {
-          alert("이메일 전송에 실패했습니다. 다시 시도해주세요.");
-          console.log(error);
-        }
-      );
+    const form = event.target as HTMLFormElement;
+    const translate = get(t);
+
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
+      alert(String(translate("contact.success")));
+      form.reset();
+    } catch (error) {
+      alert(String(translate("contact.error")));
+      console.log(error);
+    }
   }
 </script>
 
 <Header />
 
 <div class="container">
-  <div class="title">Contact</div>
+  <div class="title">{$t("contact.title")}</div>
   <form id="contact-form" name="contact-form" onsubmit={handleSubmit}>
     <div class="field">
       <label for="name">
-        <div>Name:</div>
+        <div>{$t("contact.name")}</div>
       </label>
       <input type="text" id="name" name="name" required />
     </div>
     <div class="field">
       <label for="email">
-        <div>Email:</div>
+        <div>{$t("contact.email")}</div>
       </label>
       <input type="email" id="email" name="email" required />
     </div>
     <div class="field">
       <label for="message">
-        <div>Message:</div>
+        <div>{$t("contact.message")}</div>
       </label>
       <textarea id="message" name="message" required></textarea>
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit">{$t("contact.submit")}</button>
   </form>
 </div>
 

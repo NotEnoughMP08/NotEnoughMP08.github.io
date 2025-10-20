@@ -3,12 +3,15 @@
 	import 'bootstrap-icons/font/bootstrap-icons.css';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
+	import type { Locale } from '$lib/i18n';
+	import { LANG_OPTIONS, locale, switchLocale, t } from '$lib/i18n';
 
 	const THEME_STORAGE_KEY = 'nemp-theme';
 
 	let { children } = $props();
 	let theme: 'light' | 'dark' = 'light';
 	let hasExplicitPreference = false;
+	const currentYear = new Date().getFullYear();
 
 	const applyTheme = (value: 'light' | 'dark') => {
 		theme = value;
@@ -60,6 +63,10 @@
 			mediaQuery.removeEventListener('change', handlePreferenceChange);
 		};
 	});
+
+	const handleLanguageChange = (code: Locale) => {
+		switchLocale(code);
+	};
 </script>
 
 <svelte:head>
@@ -76,12 +83,26 @@
 
 <div class="navbar">
   <div class="nemp">NEMP</div>
-  <div class="menu">
-    <div class="menu-items">
-      <div class="menu-item"><a href="/">Home</a></div>
-      <div class="menu-item"><a href="/about">About</a></div>
-      <div class="menu-item"><a href="/works">Works</a></div>
-      <div class="menu-item"><a href="/contact">Contact</a></div>
+  <div class="nav-right">
+    <nav class="menu" aria-label={$t('nav.ariaLabel')}>
+      <div class="menu-items">
+        <div class="menu-item"><a href="/">{$t('nav.home')}</a></div>
+        <div class="menu-item"><a href="/about">{$t('nav.about')}</a></div>
+        <div class="menu-item"><a href="/works">{$t('nav.works')}</a></div>
+        <div class="menu-item"><a href="/contact">{$t('nav.contact')}</a></div>
+      </div>
+    </nav>
+    <div class="language-toggle" role="group" aria-label={$t('language.srLabel')}>
+      {#each LANG_OPTIONS as option}
+        <button
+          type="button"
+          class="language-button"
+          class:active={$locale === option.code}
+          on:click={() => handleLanguageChange(option.code)}
+          aria-pressed={$locale === option.code}>
+          {option.label}
+        </button>
+      {/each}
     </div>
   </div>
 </div>
@@ -90,12 +111,12 @@
 	type="button"
 	class="theme-toggle"
 	on:click={toggleTheme}
-	aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
+	aria-label={theme === 'dark' ? $t('theme.switchToLight') : $t('theme.switchToDark')}>
 	<i class={`bi ${theme === 'dark' ? 'bi-sun-fill' : 'bi-moon-stars-fill'}`} aria-hidden="true"></i>
-	<span class="sr-only">{theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}</span>
+	<span class="sr-only">{theme === 'dark' ? $t('theme.switchToLight') : $t('theme.switchToDark')}</span>
 </button>
 <div class="footer">
-  &copy; {new Date().getFullYear()} NEMP. All rights reserved.
+  &copy; {currentYear} NEMP. {$t('footer.copyright')}
 </div>
 
 <style>
@@ -143,6 +164,12 @@
     margin: 0 auto;
   }
 
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .nemp {
     font-weight: bold;
     font-size: 1.2em;
@@ -174,6 +201,46 @@
     color: var(--color-text);
     font-weight: 500;
     transition: color 0.3s ease;
+  }
+
+  .menu-item a:hover,
+  .menu-item a:focus-visible {
+    color: var(--color-accent);
+  }
+
+  .language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    box-shadow: 0 8px 16px rgba(15, 17, 21, 0.08);
+  }
+
+  .language-button {
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .language-button:hover,
+  .language-button:focus-visible {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: var(--color-accent);
+    outline: none;
+  }
+
+  .language-button.active {
+    background-color: var(--color-accent);
+    color: #ffffff;
   }
 
   .footer {
@@ -227,5 +294,30 @@
     clip: rect(0, 0, 0, 0);
     border: 0;
     white-space: nowrap;
+  }
+
+  @media (max-width: 720px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .nav-right {
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .menu-items {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .language-toggle {
+      align-self: flex-end;
+    }
   }
 </style>
