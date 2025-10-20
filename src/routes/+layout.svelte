@@ -378,19 +378,35 @@
   }
 
   .menu-item {
-    padding: 0 15px;
+    padding: 0 8px;
   }
 
   .menu-item a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 12px;
     text-decoration: none;
     color: var(--color-text);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease, transform 0.2s ease, text-shadow 0.2s ease;
+    white-space: nowrap;
   }
 
-  .menu-item a:hover,
+  .menu-item a:hover {
+    color: var(--color-accent);
+    transform: translateY(-1px);
+    text-shadow: 0 18px 34px rgba(0, 0, 0, 0.08);
+  }
+
   .menu-item a:focus-visible {
     color: var(--color-accent);
+    outline: none;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
   }
 
   .language-dropdown {
