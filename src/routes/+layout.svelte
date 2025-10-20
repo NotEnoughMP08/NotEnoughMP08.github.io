@@ -119,7 +119,7 @@
 			hasExplicitPreference = true;
 			applyTheme(stored);
 		} else {
-			applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			applyTheme('light');
 		}
 
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
