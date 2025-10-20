@@ -21,39 +21,37 @@
   <div class="content">
     <div class="subtitle">{$t("works.original")}</div>
     {#if featuredSong}
-      <div class="featured-song">
+      <div class="media-grid media-grid-featured">
         <Music music={featuredSong} />
         {#if featuredSong.youtubeVideos?.length}
-          <div class="featured-song-videos">
-            {#each featuredSong.youtubeVideos as video (video.embed)}
-              <div class="featured-video">
-                <div class="featured-video-embed">
-                  <iframe
-                    title={`${featuredSong.title} - ${video.title}`}
-                    src={video.embed}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-                </div>
-                <div class="featured-video-info">
-                  <div class="featured-video-title">{video.title}</div>
-                  <div class="featured-video-subtitle">{video.subtitle}</div>
-                </div>
+          {#each featuredSong.youtubeVideos as video (video.embed)}
+            <div class="featured-video">
+              <div class="featured-video-embed">
+                <iframe
+                  title={`${featuredSong.title} - ${video.title}`}
+                  src={video.embed}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
               </div>
-            {/each}
-          </div>
+              <div class="featured-video-info">
+                <div class="featured-video-title">{video.title}</div>
+                <div class="featured-video-subtitle">{video.subtitle}</div>
+              </div>
+            </div>
+          {/each}
         {/if}
       </div>
     {/if}
     {#if songOriginal.length}
-      <div class="musics">
+      <div class="media-grid">
         {#each songOriginal as music (music.title)}
           <Music {music} />
         {/each}
       </div>
     {/if}
     <div class="subtitle">{$t("works.arrange")}</div>
-    <div class="musics">
+    <div class="media-grid">
       {#each songArrange as music (music.title)}
         <Music {music} />
       {/each}
@@ -62,13 +60,13 @@
   <div class="title">{$t("works.bgm")}</div>
   <div class="content">
     <div class="subtitle">{$t("works.original")}</div>
-    <div class="musics">
+    <div class="media-grid">
       {#each bgmOriginal as music (music.title)}
         <Music {music} />
       {/each}
     </div>
     <div class="subtitle">{$t("works.arrange")}</div>
-    <div class="musics">
+    <div class="media-grid">
       {#each bgmArrange as music (music.title)}
         <Music {music} />
       {/each}
@@ -99,30 +97,28 @@
     margin-bottom: 40px;
   }
 
-  .musics {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-
-  .featured-song {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-bottom: 20px;
-  }
-
-  .featured-song-videos {
+  .media-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: start;
+  }
+
+  .media-grid-featured {
     gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .media-grid :global(.music) {
+    align-self: start;
   }
 
   .featured-video {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    height: 100%;
   }
 
   .featured-video-embed {
@@ -159,7 +155,7 @@
   }
 
   @media (max-width: 600px) {
-    .featured-song-videos {
+    .media-grid {
       grid-template-columns: 1fr;
     }
   }
