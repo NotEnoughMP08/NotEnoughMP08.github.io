@@ -299,9 +299,10 @@
     --color-surface: rgba(255, 255, 255, 0.85);
     --color-border: rgba(0, 0, 0, 0.08);
     --color-accent: #5a4326;
-    --color-toggle-bg: rgba(0, 0, 0, 0.05);
-    --color-toggle-border: rgba(0, 0, 0, 0.1);
-    --color-toggle-icon: #333333;
+    --color-toggle-bg: rgba(255, 255, 255, 0.92);
+    --color-toggle-border: rgba(0, 0, 0, 0.18);
+    --color-toggle-icon: #1f1f1f;
+    --color-toggle-shadow: rgba(17, 19, 24, 0.16);
     --color-surface-contrast: rgba(255, 255, 255, 0.95);
     --color-border-strong: rgba(0, 0, 0, 0.12);
     --language-toggle-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(238, 238, 238, 0.78));
@@ -317,9 +318,10 @@
     --color-surface: rgba(25, 30, 40, 0.85);
     --color-border: rgba(255, 255, 255, 0.08);
     --color-accent: #6f95ff;
-    --color-toggle-bg: rgba(255, 255, 255, 0.08);
-    --color-toggle-border: rgba(255, 255, 255, 0.12);
-    --color-toggle-icon: #f0f3f9;
+    --color-toggle-bg: rgba(9, 12, 20, 0.9);
+    --color-toggle-border: rgba(204, 212, 230, 0.28);
+    --color-toggle-icon: #f7f9ff;
+    --color-toggle-shadow: rgba(0, 0, 0, 0.45);
     --color-surface-contrast: rgba(40, 48, 64, 0.92);
     --color-border-strong: rgba(255, 255, 255, 0.16);
     --language-toggle-bg: linear-gradient(135deg, rgba(51, 61, 82, 0.94), rgba(32, 41, 60, 0.86));
@@ -551,13 +553,15 @@
     justify-content: center;
     cursor: pointer;
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 16px rgba(15, 17, 21, 0.12);
-    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 24px var(--color-toggle-shadow);
+    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+      box-shadow 0.3s ease;
     z-index: 1000;
   }
 
   .theme-toggle:hover {
     transform: translateY(-2px);
+    box-shadow: 0 12px 28px var(--color-toggle-shadow);
   }
 
   .theme-toggle:focus-visible {
