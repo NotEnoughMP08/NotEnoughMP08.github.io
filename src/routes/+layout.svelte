@@ -43,6 +43,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    max-width: var(--page-width);
+    margin: 0 auto;
   }
 
   .nemp {
