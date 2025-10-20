@@ -340,16 +340,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 8px 10px;
     max-width: var(--page-width);
     margin: 0 auto;
-    min-height: 64px;
+    min-height: 56px;
   }
 
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     flex-wrap: nowrap;
   }
 
@@ -404,13 +404,13 @@
     border: 1px solid var(--language-toggle-border);
     background: var(--language-toggle-bg);
     color: var(--color-text);
-    padding: 8px 20px;
+    padding: 6px 18px;
     cursor: pointer;
     box-shadow: 0 18px 34px var(--language-toggle-shadow);
     backdrop-filter: blur(14px);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
     white-space: nowrap;
-    min-height: 40px;
+    min-height: 36px;
   }
 
   .language-toggle-button:hover {
