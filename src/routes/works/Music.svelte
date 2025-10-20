@@ -257,4 +257,8 @@
       display: none;
     }
   }
+
+  input[type="range"] {
+    accent-color: #444; /* Example color */
+  }
 </style>

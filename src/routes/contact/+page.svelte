@@ -3,13 +3,15 @@
   import emailjs from "@emailjs/browser";
   import { onMount } from "svelte";
 
+  const PUBLIC_KEY = "CAFvgQTgbDLMJh9rW";
+
   onMount(() => {
-    emailjs.init("H3EbxQzX4r43xALBg");
+    emailjs.init(PUBLIC_KEY);
 
   });
 
-  const SERVICE_ID = "nemp-me";
-  const TEMPLATE_ID = "template_nemp_me";
+  const SERVICE_ID = "NEMP.me";
+  const TEMPLATE_ID = "NotEnoughMP08_Mail";
 
   function handleSubmit(event) {
     event.preventDefault();
