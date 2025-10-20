@@ -5,7 +5,7 @@
   import { t } from "$lib/i18n";
 
   let { music } = $props();
-  let { title, subtitle, src } = music;
+  let { title, subtitle, src, youtubeEmbeds = [] } = music;
 
   import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -186,6 +186,20 @@
         <input type="range" min="0" max="10000" value={progress} onchange={changeProgress} oninput={changeProgress} class="music-progress-bar" />
       </div>
     </div>
+    {#if youtubeEmbeds.length}
+      <div class="music-youtube-list">
+        {#each youtubeEmbeds as url, index (url)}
+          <div class="music-youtube-item">
+            <iframe
+              title={`${title} YouTube ${index + 1}`}
+              src={url}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        {/each}
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -296,6 +310,29 @@
   .music-volume-icon:hover,
   .music-volume-icon:focus-visible {
     color: var(--color-accent);
+  }
+
+  .music-youtube-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .music-youtube-item {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .music-youtube-item iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
   }
 
   @media (max-width: 600px) {

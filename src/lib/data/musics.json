@@ -3,7 +3,12 @@
     "title": "약속의 과실",
     "subtitle": "Epic, World",
     "src": "/musics/Vocal.mp3",
-    "class": "song-original"
+    "class": "song-original",
+    "youtubeEmbeds": [
+      "https://www.youtube.com/embed/yzbGt32REuU?si=bYhqsvq7ModZY5CB",
+      "https://www.youtube.com/embed/TdRs3Iug_jY?si=01BJ_VE4BEI_KEN1",
+      "https://www.youtube.com/embed/Qc9n8T44TrY?si=EervsFb1k9gTDksu"
+    ]
   },
   {
     "title": "Title Sequence",
