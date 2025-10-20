@@ -72,10 +72,13 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
   <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanssc.css">
   <title>NotEnoughMP</title>
   <style>
     body {
-      font-family: 'SUIT', sans-serif;
+      font-family: 'SUIT', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
       margin: 0;
     }
   </style>
@@ -148,7 +151,7 @@
   }
 
   :global(body) {
-    font-family: 'SUIT', sans-serif;
+    font-family: 'SUIT', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
     margin: 0;
     background-color: var(--color-background);
     color: var(--color-text);
