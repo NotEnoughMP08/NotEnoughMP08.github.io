@@ -119,7 +119,7 @@
     --color-muted: #9ca4b5;
     --color-surface: rgba(25, 30, 40, 0.85);
     --color-border: rgba(255, 255, 255, 0.08);
-    --color-accent: #8a673d;
+    --color-accent: #6f95ff;
     --color-toggle-bg: rgba(255, 255, 255, 0.08);
     --color-toggle-border: rgba(255, 255, 255, 0.12);
     --color-toggle-icon: #f0f3f9;
