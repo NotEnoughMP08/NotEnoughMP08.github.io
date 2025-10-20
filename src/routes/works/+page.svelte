@@ -13,6 +13,29 @@
   const songArrange = musics.filter((music) => music.class === "song-arrange");
   const bgmOriginal = musics.filter((music) => music.class === "bgm-original");
   const bgmArrange = musics.filter((music) => music.class === "bgm-arrange");
+
+  const songArrangeVideos = [
+    {
+      embed: "https://www.youtube.com/embed/5YLJwhyczHc?si=BLaIhY9_ToivwHXu",
+      title: "한결(Hangyeol) - 나의 우주(My Universe)",
+      subtitle: "Pop, Rock"
+    },
+    {
+      embed: "https://www.youtube.com/embed/BoCKhWamZ6I?si=4YjzqjFZwM5n4N8n",
+      title: "SNS코믹 ‘이웃집 남동생이 초등학생인데 너무 잘해! 엔딩 테마 ‘운명’",
+      subtitle: "K-pop Ballad"
+    },
+    {
+      embed: "https://www.youtube.com/embed/RogYuIRaB74?si=QGWrZvhVwcXMH5tZ",
+      title: "엘시(Elsea) 1주년 콘서트 ‘태연 - I’",
+      subtitle: "K-pop, Rock"
+    },
+    {
+      embed: "https://www.youtube.com/embed/MMHbFSSwi2s?si=ycYqkTYGELjhPNBG",
+      title: "엘시(Elsea) 1주년 콘서트 ‘Ed Sheeran - Perfect’",
+      subtitle: "Acoustic Pop"
+    }
+  ];
 </script>
 
 <Header />
@@ -64,6 +87,28 @@
         </div>
       {/each}
     </div>
+    {#if songArrangeVideos.length}
+      <div class="videos-section">
+        <div class="videos-grid">
+          {#each songArrangeVideos as video (video.embed)}
+            <div class="video-card">
+              <div class="featured-video-embed">
+                <iframe
+                  title={`Song Arrange - ${video.title}`}
+                  src={video.embed}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="featured-video-info">
+                <div class="featured-video-title">{video.title}</div>
+                <div class="featured-video-subtitle">{video.subtitle}</div>
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
   </div>
   <div class="title">{$t("works.bgm")}</div>
   <div class="content">
@@ -130,6 +175,10 @@
     max-width: min(100%, calc((100% - 20px) / 2));
   }
 
+  .videos-section {
+    margin-top: 16px;
+  }
+
   .media-item {
     display: flex;
     flex-direction: column;
@@ -140,13 +189,15 @@
     height: 100%;
   }
 
-  .featured-videos-grid {
+  .featured-videos-grid,
+  .videos-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
 
-  .featured-video {
+  .featured-video,
+  .video-card {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -195,7 +246,8 @@
       max-width: 100%;
     }
 
-    .featured-videos-grid {
+    .featured-videos-grid,
+    .videos-grid {
       grid-template-columns: 1fr;
       gap: 20px;
     }
