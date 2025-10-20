@@ -121,15 +121,8 @@
       </div>
     {/if}
     <div class="subtitle">{$t("works.arrange")}</div>
-    <div class="media-grid song-arrange-grid">
-      {#each songArrange as music (music.title)}
-        <div class="media-item">
-          <Music {music} />
-        </div>
-      {/each}
-    </div>
     {#if songArrangeVideos.length}
-      <div class="videos-section">
+      <div class="videos-section videos-section-before">
         <div class="videos-grid">
           {#each songArrangeVideos as video (video.embed)}
             <div class="video-card">
@@ -150,6 +143,13 @@
         </div>
       </div>
     {/if}
+    <div class="media-grid song-arrange-grid">
+      {#each songArrange as music (music.title)}
+        <div class="media-item">
+          <Music {music} />
+        </div>
+      {/each}
+    </div>
   </div>
   <div class="title">{$t("works.bgm")}</div>
   <div class="content">
@@ -252,22 +252,17 @@
   .content .videos-section + .subtitle,
   .content .videos-section-before + .subtitle,
   .content .media-grid + .subtitle {
-    margin-top: 36px;
+    margin-top: 32px;
   }
 
   .content .subtitle + .media-grid,
   .content .subtitle + .media-featured,
-  .content .subtitle + .videos-section,
   .content .subtitle + .videos-section-before {
     margin-top: 24px;
   }
 
   .content .subtitle + .media-grid.song-arrange-grid {
     margin-top: 24px;
-  }
-
-  .media-grid.song-arrange-grid + .videos-section {
-    margin-top: 18px;
   }
 
   .media-grid {
@@ -294,6 +289,10 @@
   .videos-section-before {
     margin-top: 0;
     margin-bottom: 16px;
+  }
+
+  .videos-section-before + .media-grid {
+    margin-top: 16px;
   }
 
   .media-item {
