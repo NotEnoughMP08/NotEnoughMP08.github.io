@@ -4,27 +4,6 @@
   import { onMount } from 'svelte';
 
 	let { children } = $props();
-
-  let menuHidden = $state(true);
-
-  function toggleMenu() {
-    menuHidden = !menuHidden;
-  }
-
-  let menu: HTMLDivElement;
-  let button: HTMLButtonElement;
-  function handleClickOutside(event: MouseEvent) {
-    if (menuHidden && menu && button && !menu.contains(event.target as Node) && !button.contains(event.target as Node)) {
-      menuHidden = true;
-    }
-  }
-
-  onMount(() => {
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  });
 </script>
 
 <svelte:head>
@@ -44,12 +23,12 @@
 
 <div class="navbar">
   <div class="nemp">NEMP</div>
-  <div class="menu" class:hidden={menuHidden} bind:this={menu}>
+  <div class="menu">
     <div class="menu-items">
-      <div class="menu-item"><a href="/" onclick={() => menuHidden = true}>Home</a></div>
-      <div class="menu-item"><a href="/about" onclick={() => menuHidden = true}>About</a></div>
-      <div class="menu-item"><a href="/works" onclick={() => menuHidden = true}>Works</a></div>
-      <div class="menu-item"><a href="/contact" onclick={() => menuHidden = true}>Contact</a></div>
+      <div class="menu-item"><a href="/">Home</a></div>
+      <div class="menu-item"><a href="/about">About</a></div>
+      <div class="menu-item"><a href="/works">Works</a></div>
+      <div class="menu-item"><a href="/contact">Contact</a></div>
     </div>
   </div>
 </div>
@@ -71,55 +50,6 @@
     font-size: 1.2em;
   }
 
-  .menu-icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .menu {
-    height: 100vh;
-    width: 200px;
-    top: 0;
-    left: calc(100vw - 200px);
-    position: fixed;
-    background-color: #f5f3f2;
-    text-align: right;
-  }
-
-  .menu-button {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-  }
-
-  .menu .menu-button {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    margin: 10px;
-  }
-
-  .menu-items {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .menu-item {
-    padding: 15px 20px;
-  }
-
-  .menu-item a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-  }
-
-  .hidden {
-    display: none;
-  }
-
   .menu {
     position: static;
     width: auto;
@@ -132,6 +62,7 @@
   }
 
   .menu-items {
+    display: flex;
     flex-direction: row;
     align-items: center;
   }
@@ -140,10 +71,9 @@
     padding: 0 15px;
   }
 
-  .menu-button {
-    display: none;
-  }
-
-  .menu .menu-button {
+  .menu-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
   }
 </style>
