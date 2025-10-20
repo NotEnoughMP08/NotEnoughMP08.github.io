@@ -165,7 +165,7 @@
         </div>
         <div class="music-audio-top-right hide-mobile">
           <input type="range" min="0" max="100" value={audioVolume} onchange={changeVolume} oninput={changeVolume} onmouseleave={hideVolume} class="music-volume-bar" />
-          <i class="bi bi-volume-up-fill" style="font-size: 1.5em; color: #333;" onmouseenter={showVolume}></i>
+          <i class="bi bi-volume-up-fill" style="font-size: 1.5em; color: #333;" onmouseenter={showVolume} role="button" aria-label="Volume" tabindex="0"></i>
         </div>
       </div>
       <div class="music-audio-bar">
