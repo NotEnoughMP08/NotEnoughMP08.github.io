@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/cropped_circle_image.png';
   import "bootstrap-icons/font/bootstrap-icons.css";
   import { onMount } from 'svelte';
 
@@ -30,13 +30,10 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
   <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <title>NotEnoughMP</title>
   <style>
     body {
       font-family: 'SUIT', sans-serif;
-    }
-  </style>
-  <style>
-    body {
       margin: 0;
       --page-width: 800px;
       background-color: #f5f3f2;
