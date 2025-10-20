@@ -106,7 +106,7 @@
     --color-muted: #666666;
     --color-surface: rgba(255, 255, 255, 0.85);
     --color-border: rgba(0, 0, 0, 0.08);
-    --color-accent: #3a7bfd;
+    --color-accent: #5a4326;
     --color-toggle-bg: rgba(0, 0, 0, 0.05);
     --color-toggle-border: rgba(0, 0, 0, 0.1);
     --color-toggle-icon: #333333;
@@ -119,7 +119,7 @@
     --color-muted: #9ca4b5;
     --color-surface: rgba(25, 30, 40, 0.85);
     --color-border: rgba(255, 255, 255, 0.08);
-    --color-accent: #7aa6ff;
+    --color-accent: #8a673d;
     --color-toggle-bg: rgba(255, 255, 255, 0.08);
     --color-toggle-border: rgba(255, 255, 255, 0.12);
     --color-toggle-icon: #f0f3f9;
