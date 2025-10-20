@@ -14,6 +14,7 @@
   let audioDuration = $state("0:00");
   let audioCurrentTime = $state("0:00");
   let audioVolume = $state(50);
+  let showVolumeControl = $state(false);
 
   function togglePlayAudio() {
     if (!audio) {
@@ -61,6 +62,14 @@
     const value = Number(target.value);
     audio.volume = value / 100;
     audioVolume = value;
+  }
+
+  function showVolume() {
+    showVolumeControl = true;
+  }
+
+  function hideVolume() {
+    showVolumeControl = false;
   }
 
   const handleLoadedMetadata = () => {
