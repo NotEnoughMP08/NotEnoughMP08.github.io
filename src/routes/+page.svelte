@@ -28,16 +28,14 @@
 
 <style>
   .background {
-    width: 100%;
-    max-width: var(--page-width);
-    height: min(100vh, 720px);
-    margin: 0 auto 20px;
+    max-width: 100vw;
+    height: 100vh;
+    margin: auto;
     background-size: cover;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: darken;
-    border-radius: 24px;
-    overflow: hidden;
+    margin-bottom: 20px;
   }
 
   .content {
