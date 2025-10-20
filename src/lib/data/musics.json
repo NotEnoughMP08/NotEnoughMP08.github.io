@@ -4,10 +4,23 @@
     "subtitle": "Epic, World",
     "src": "/musics/Vocal.mp3",
     "class": "song-original",
-    "youtubeEmbeds": [
-      "https://www.youtube.com/embed/yzbGt32REuU?si=bYhqsvq7ModZY5CB",
-      "https://www.youtube.com/embed/TdRs3Iug_jY?si=01BJ_VE4BEI_KEN1",
-      "https://www.youtube.com/embed/Qc9n8T44TrY?si=EervsFb1k9gTDksu"
+    "featured": true,
+    "youtubeVideos": [
+      {
+        "embed": "https://www.youtube.com/embed/yzbGt32REuU?si=bYhqsvq7ModZY5CB",
+        "title": "여름의 아틀리에 - 블루 하이웨이",
+        "subtitle": "J-Rock, Band"
+      },
+      {
+        "embed": "https://www.youtube.com/embed/TdRs3Iug_jY?si=01BJ_VE4BEI_KEN1",
+        "title": "분홍빛",
+        "subtitle": "Jazz"
+      },
+      {
+        "embed": "https://www.youtube.com/embed/Qc9n8T44TrY?si=EervsFb1k9gTDksu",
+        "title": "설레임",
+        "subtitle": "J-Pop"
+      }
     ]
   },
   {
