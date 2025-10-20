@@ -329,14 +329,41 @@ const resolveList = (locale: Locale, key: string) => {
     return undefined;
 };
 
-const localeStore = writable<Locale>('ko');
+const getInitialLocale = (): Locale => {
+	if (!browser) {
+		return 'ko';
+	}
 
-if (browser) {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (isLocale(stored)) {
-        localeStore.set(stored);
-    }
-}
+	const stored = localStorage.getItem(STORAGE_KEY);
+	if (isLocale(stored)) {
+		return stored;
+	}
+
+	const candidates: string[] = Array.isArray(navigator.languages)
+		? navigator.languages
+		: [navigator.language];
+
+	for (const candidate of candidates) {
+		if (!candidate) {
+			continue;
+		}
+
+		const normalized = candidate.toLowerCase();
+		const [base] = normalized.split('-');
+
+		if (isLocale(base)) {
+			return base;
+		}
+
+		if (isLocale(normalized)) {
+			return normalized;
+		}
+	}
+
+	return 'ko';
+};
+
+const localeStore = writable<Locale>(getInitialLocale());
 
 localeStore.subscribe(($locale) => {
     if (browser) {
