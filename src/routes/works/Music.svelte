@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import profile from "$lib/assets/profile.png";
+  import { getPlayingAudio, setPlayingAudio } from "$lib/stores/playingAudio";
 
   let { music } = $props();
   let { title, subtitle, src } = music;
@@ -22,11 +23,20 @@
     if (isPlaying) {
       audio.pause();
       isPlaying = false;
+      if (getPlayingAudio() === audio) {
+        setPlayingAudio(null);
+      }
       return;
+    }
+
+    const activeAudio = getPlayingAudio();
+    if (activeAudio && activeAudio !== audio) {
+      activeAudio.pause();
     }
 
     audio.play();
     isPlaying = true;
+    setPlayingAudio(audio);
     return;
   }
 
@@ -53,30 +63,80 @@
     audioVolume = value;
   }
 
+  const handleLoadedMetadata = () => {
+    if (!audio) {
+      return;
+    }
+    const minutes = Math.floor(audio.duration / 60);
+    const seconds = Math.floor(audio.duration % 60)
+      .toString()
+      .padStart(2, "0");
+    audioDuration = `${minutes}:${seconds}`;
+  };
+
+  const handleTimeUpdate = () => {
+    if (audio && audio.duration) {
+      progress = (audio.currentTime / audio.duration) * 10000;
+      audioCurrentTime = `${Math.floor(audio.currentTime / 60)}:${Math.floor(audio.currentTime % 60)
+        .toString()
+        .padStart(2, "0")}`;
+    }
+  };
+
+  const handleEnded = () => {
+    if (!audio) {
+      return;
+    }
+    isPlaying = false;
+    progress = 0;
+    audioCurrentTime = "0:00";
+    audio.currentTime = 0;
+    if (getPlayingAudio() === audio) {
+      setPlayingAudio(null);
+    }
+  };
+
+  const handlePause = () => {
+    if (!audio) {
+      return;
+    }
+    isPlaying = false;
+    if (getPlayingAudio() === audio) {
+      setPlayingAudio(null);
+    }
+  };
+
+  const handlePlay = () => {
+    if (!audio) {
+      return;
+    }
+    isPlaying = true;
+    setPlayingAudio(audio);
+  };
+
   onMount(() => {
     audio = new Audio(src);
     audio.volume = 0.5;
-    audio.addEventListener("loadedmetadata", () => {
-      const minutes = Math.floor(audio.duration / 60);
-      const seconds = Math.floor(audio.duration % 60)
-        .toString()
-        .padStart(2, "0");
-      audioDuration = `${minutes}:${seconds}`;
-    });
-    audio.addEventListener("timeupdate", () => {
-      if (audio && audio.duration) {
-        progress = (audio.currentTime / audio.duration) * 10000;
-        audioCurrentTime = `${Math.floor(audio.currentTime / 60)}:${Math.floor(audio.currentTime % 60)
-          .toString()
-          .padStart(2, "0")}`;
-      }
-    });
-    audio.addEventListener("ended", () => {
-      isPlaying = false;
-      progress = 0;
-      audioCurrentTime = "0:00";
-      audio.currentTime = 0;
-    });
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("pause", handlePause);
+    audio.addEventListener("play", handlePlay);
+  });
+
+  onDestroy(() => {
+    if (!audio) {
+      return;
+    }
+    audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.removeEventListener("timeupdate", handleTimeUpdate);
+    audio.removeEventListener("ended", handleEnded);
+    audio.removeEventListener("pause", handlePause);
+    audio.removeEventListener("play", handlePlay);
+    if (getPlayingAudio() === audio) {
+      setPlayingAudio(null);
+    }
+    audio.pause();
   });
 </script>
 
