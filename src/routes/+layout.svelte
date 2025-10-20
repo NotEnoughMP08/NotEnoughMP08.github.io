@@ -67,6 +67,9 @@
   </div>
 </div>
 {@render children?.()}
+<div class="footer" style="text-align: center; padding: 20px; font-size: 0.9em; color: #666;">
+  &copy; {new Date().getFullYear()} NEMP. All rights reserved.
+</div>
 
 <style>
   .navbar {

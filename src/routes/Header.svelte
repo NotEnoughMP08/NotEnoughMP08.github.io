@@ -17,6 +17,7 @@
     background-position: center;
     margin-bottom: 20px;
     border-radius: 15px;
+    filter: saturate(0.9);
   }
 
   @media (max-width: 800px) {

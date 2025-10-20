@@ -14,11 +14,11 @@
       <div class="name">NEMP</div>
       <div class="description">Composer, Keyboard Player</div>
       <div class="contact">
+        <a href="https://x.com/NotEnoughMP" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-twitter-x" style="font-size: 1.5em; color: white; margin-right: 10px;"></i>
+        </a>
         <a href="https://www.youtube.com/c/NEMPofficial" target="_blank" rel="noopener noreferrer">
           <i class="bi bi-youtube" style="font-size: 1.5em; color: white; margin-right: 10px;"></i>
-        </a>
-        <a href="https://x.com/NotEnoughMP" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-twitter" style="font-size: 1.5em; color: white; margin-right: 10px;"></i>
         </a>
       </div>
     </div>
@@ -45,6 +45,7 @@
     justify-content: center;
     height: 100%;
     color: white;
+    backdrop-filter: saturate(0.9) blur(4px);
   }
 
   .profile-image {
