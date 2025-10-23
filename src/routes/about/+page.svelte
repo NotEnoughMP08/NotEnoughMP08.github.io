@@ -19,64 +19,42 @@
     {@html $t('about.quote2')}
   </div>
 </div>
-<div class="container">
-  <div class="profile">
-    <img src={profile} alt="Profile" width="150" height="150" class="profile-image" />
-  </div>
-  <div class="content">
-    <div class="text-name">
-      NEMP
-    </div>
-    <div class="text">
+<section class="profile-section">
+  <img
+    src={profile}
+    alt="Profile"
+    width="150"
+    height="150"
+    class="profile-avatar"
+  />
+  <div class="profile-details">
+    <div class="profile-name">NEMP</div>
+    <div class="profile-text">
       {@html $t('about.intro1')}
     </div>
-    <div class="text">
+    <div class="profile-text">
       {@html $t('about.intro2')}
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="title">{$t('about.workHistory')}</div>
-  <ul class="text">
+</section>
+<section class="work-section">
+  <div class="section-title">{$t('about.workHistory')}</div>
+  <ul class="work-list">
     {#each worksList as work}
       <li>{work}</li>
     {/each}
   </ul>
-</div>
+</section>
 
 <style>
 .quote-container {
   max-width: var(--page-width);
   margin: auto;
-  margin-top: 20px;
+  margin-top: 110px;
   text-align: center;
   padding: 0 20px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
-
-  .container {
-    max-width: var(--page-width);
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin-top: 40px;
-  }
-
-  .profile {
-    flex: 4;
-    display: flex;
-    justify-content: center;
-    align-items: top;
-  }
-
-  .profile-image {
-    border-radius: 50%;
-  }
-
-  .content {
-    flex: 8;
-  }
 
   .text-quote {
     font-size: 1.2em;
@@ -86,34 +64,105 @@
     white-space: pre-line;
   }
 
-  .text-name {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 15px;
+  .profile-section {
+    max-width: 720px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 540px);
+    align-items: center;
+    justify-content: center;
+    column-gap: 48px;
   }
 
-  .text {
-    margin-bottom: 10px;
+  .profile-avatar {
+    border-radius: 50%;
+    justify-self: center;
+  }
+
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 36px 0;
+    max-width: 540px;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .profile-name {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  .profile-text {
     line-height: 1.6;
+    width: 100%;
+  }
+
+  .work-section {
+    max-width: var(--page-width);
+    margin: 120px auto 240px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+    column-gap: 60px;
+    align-items: start;
+  }
+
+  .section-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    justify-self: start;
+  }
+
+  .work-list {
+    margin: 0;
+    padding-left: 24px;
+    line-height: 1.7;
   }
 
   @media (max-width: 800px) {
-    .container {
-      flex-direction: column;
-      align-items: center;
+    .profile-section {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      text-align: center;
       padding: 0 20px;
+      justify-items: center;
     }
 
-    .profile {
-      margin-bottom: 20px;
+    .profile-details {
+      padding: 0;
+      align-items: center;
+      text-align: center;
     }
 
-    .content {
-      flex: none;
+    .work-section {
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+      column-gap: 0;
+      text-align: left;
+      margin-bottom: 200px;
+    }
+
+    .section-title {
+      justify-self: center;
+      text-align: center;
+    }
+
+    .work-list {
+      padding-left: 20px;
     }
   }
 
-  .text li {
+  @media (max-width: 720px) {
+    .quote-container {
+      margin-top: 80px;
+      margin-bottom: 70px;
+    }
+  }
+
+  .work-list li {
     margin-bottom: 8px;
   }
 </style>
