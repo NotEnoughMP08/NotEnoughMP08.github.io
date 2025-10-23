@@ -551,6 +551,7 @@
     padding: 20px;
     font-size: 0.9em;
     color: var(--color-muted);
+    margin-top: 140px;
     transition: color 0.3s ease;
   }
 

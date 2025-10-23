@@ -15,7 +15,7 @@
     margin: auto;
     background-size: cover;
     background-position: center;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     border-radius: 15px;
     filter: saturate(0.9);
   }
@@ -23,6 +23,7 @@
   @media (max-width: 800px) {
     .header {
       border-radius: 0;
+      margin-bottom: 60px;
     }
   }
 </style>
