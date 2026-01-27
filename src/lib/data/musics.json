@@ -5,6 +5,15 @@
     "src": "/musics/Vocal.mp3",
     "class": "song-original",
     "featured": true,
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Music: NEMP",
+        "Vocal: 6FU;",
+        "Chorus: PN / NEMP",
+        "Chorus Guide: 6FU; / NEMP"
+      ]
+    },
     "youtubeVideos": [
       {
         "embed": "https://www.youtube.com/embed/yzbGt32REuU?si=bYhqsvq7ModZY5CB",

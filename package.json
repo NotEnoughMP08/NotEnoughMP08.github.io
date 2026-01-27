@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite dev --host",
-    "build": "vite build"
+    "build": "vite build",
+    "dev": "vite dev --host"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
@@ -12,12 +12,16 @@
     "@sveltejs/vite-plugin-svelte": "^6.2.0",
     "svelte": "^5.39.5",
     "svelte-check": "^4.3.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.2",
     "vite": "^7.1.7"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@modelcontextprotocol/sdk": "^1.25.3",
     "@playwright/test": "^1.56.1",
-    "bootstrap-icons": "^1.13.1"
+    "bootstrap-icons": "^1.13.1",
+    "sst": "3.17.38",
+    "svelte-kit-sst": "2.43.5"
   }
 }
