@@ -275,7 +275,7 @@
     border-left: 3px solid var(--color-accent);
     padding: 12px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
