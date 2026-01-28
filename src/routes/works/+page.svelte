@@ -5,6 +5,8 @@
   import musics from "$lib/data/musics.json";
   import { t } from "$lib/i18n";
 
+  let hoveredVideoIndex: number | null = $state(null);
+
   const allSongOriginal = musics.filter((music) => music.class === "song-original");
   const featuredSong = allSongOriginal.find((music) => music.featured);
   const songOriginal = featuredSong
@@ -91,8 +93,8 @@
         </div>
         {#if featuredSong.youtubeVideos?.length}
           <div class="featured-videos-grid">
-            {#each featuredSong.youtubeVideos as video (video.embed)}
-              <div class="featured-video">
+            {#each featuredSong.youtubeVideos as video, index (video.embed)}
+              <div class="featured-video" onmouseenter={() => (hoveredVideoIndex = index)} onmouseleave={() => (hoveredVideoIndex = null)}>
                 <div class="featured-video-embed">
                   <iframe
                     title={`${featuredSong.title} - ${video.title}`}
@@ -104,7 +106,7 @@
                 <div class="featured-video-info">
                   <div class="featured-video-title">{video.title}</div>
                   <div class="featured-video-subtitle">{video.subtitle}</div>
-                  {#if video.credit}
+                  {#if video.credit && hoveredVideoIndex === index}
                     <div class="video-credit">
                       <div class="video-credit-title">{video.credit.title}</div>
                       {#each video.credit.details as detail}
@@ -364,23 +366,23 @@
   .video-credit {
     background-color: var(--color-surface-variant);
     border-left: 3px solid var(--color-accent);
-    padding: 10px;
+    padding: 12px;
     border-radius: 6px;
     margin-top: 8px;
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
 
   .video-credit-title {
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: var(--color-accent);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .video-credit-detail {
-    font-size: 0.8em;
+    font-size: 0.85em;
     color: var(--color-muted);
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
   @media (max-width: 600px) {
