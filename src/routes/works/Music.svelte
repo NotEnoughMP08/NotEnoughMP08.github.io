@@ -5,7 +5,7 @@
   import { t } from "$lib/i18n";
 
   let { music } = $props();
-  let { title, subtitle, src } = music;
+  let { title, subtitle, src, credit } = music;
 
   import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -16,6 +16,8 @@
   let audioCurrentTime = $state("0:00");
   let audioVolume = $state(50);
   let showVolumeControl = $state(false);
+  let isHovering = $state(false);
+  let showCredit = $state(false);
 
   function togglePlayAudio() {
     if (!audio) {
@@ -28,6 +30,7 @@
       if (getPlayingAudio() === audio) {
         setPlayingAudio(null);
       }
+      showCredit = false;
       return;
     }
 
@@ -39,6 +42,9 @@
     audio.play();
     isPlaying = true;
     setPlayingAudio(audio);
+    if (credit) {
+      showCredit = true;
+    }
     return;
   }
 
@@ -101,6 +107,7 @@
     progress = 0;
     audioCurrentTime = "0:00";
     audio.currentTime = 0;
+    showCredit = false;
     if (getPlayingAudio() === audio) {
       setPlayingAudio(null);
     }
@@ -111,6 +118,7 @@
       return;
     }
     isPlaying = false;
+    showCredit = false;
     if (getPlayingAudio() === audio) {
       setPlayingAudio(null);
     }
@@ -151,7 +159,7 @@
 </script>
 
 
-<div class="music">
+<div class="music" onmouseenter={() => (isHovering = true)} onmouseleave={() => (isHovering = false)}>
   <div class="music-left">
     <div class="music-albumart">
       <img src={profile} alt="Album Art" width="100" height="100" />
@@ -160,6 +168,14 @@
   <div class="music-right">
     <div class="music-title">{title}</div>
     <div class="music-subtitle">{subtitle}</div>
+    {#if (isHovering || showCredit) && credit}
+      <div class="music-credit">
+        <div class="music-credit-title">{credit.title}</div>
+        {#each credit.details as detail}
+          <div class="music-credit-detail">{detail}</div>
+        {/each}
+      </div>
+    {/if}
     <div class="music-audio">
       <div class="music-audio-top">
         <div class="music-audio-top-left">
@@ -225,6 +241,40 @@
     font-size: 1em;
     color: var(--color-muted);
     margin-bottom: 10px;
+  }
+
+  .music-credit {
+    background-color: var(--color-surface-variant);
+    border-left: 3px solid var(--color-accent);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease;
+    animation: slideIn 0.3s ease;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .music-credit-title {
+    font-weight: bold;
+    font-size: 0.95em;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+  }
+
+  .music-credit-detail {
+    font-size: 0.85em;
+    color: var(--color-muted);
+    line-height: 1.4;
   }
 
   .music-audio {
