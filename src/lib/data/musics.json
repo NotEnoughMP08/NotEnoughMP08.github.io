@@ -61,6 +61,12 @@
     ]
   },
   {
+    "title": "Title Sequence",
+    "subtitle": "Ambient",
+    "src": "/musics/01.mp3",
+    "class": "bgm-original"
+  },
+  {
     "title": "Metal BGM",
     "subtitle": "",
     "src": "/musics/07.mp3",
