@@ -195,8 +195,8 @@
   <div class="music-right">
     <div class="music-title">{title}</div>
     <div class="music-subtitle">{subtitle}</div>
-    {#if (isHoverDelayed || showCredit) && credit}
-      <div class="music-credit">
+    {#if credit}
+      <div class="music-credit" class:visible={isHoverDelayed || showCredit}>
         <div class="music-credit-title">{credit.title}</div>
         {#each credit.details as detail}
           <div class="music-credit-detail">{detail}</div>
@@ -276,8 +276,16 @@
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 10px;
-    transition: opacity 0.4s ease;
-    animation: slideIn 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-bottom 0.4s ease;
+  }
+
+  .music-credit.visible {
+    max-height: 200px;
+    opacity: 1;
+    margin-bottom: 10px;
   }
 
   @keyframes slideIn {
