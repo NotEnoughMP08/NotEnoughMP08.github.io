@@ -64,54 +64,118 @@
     "title": "Title Sequence",
     "subtitle": "Ambient",
     "src": "/musics/01.mp3",
-    "class": "bgm-original"
+    "class": "bgm-original",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Music: NEMP"
+      ]
+    }
   },
   {
     "title": "Metal BGM",
     "subtitle": "",
     "src": "/musics/07.mp3",
-    "class": "bgm-original"
+    "class": "bgm-original",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Music: NEMP",
+        "Guitar: JungMato",
+        "Drum: Marker",
+        "Bass: euPhemia",
+        "Key: NEMP"
+      ]
+    }
   },
   {
     "title": "Accoustic BGM",
     "subtitle": "",
     "src": "/musics/03.mp3",
-    "class": "bgm-original"
+    "class": "bgm-original",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Music: NEMP"
+      ]
+    }
   },
   {
     "title": "Team LiBRA - Blue Archive ‘Signal of Abydos’ Band Arrange cover",
     "subtitle": "Jazz Fusion, Funk, Band, Instrumental",
     "src": "/musics/08.mp3",
-    "class": "bgm-arrange"
+    "class": "bgm-arrange",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "'Signal of Abydos' Band Arrange cover Band arrange from Team LiBRA",
+        "Arranged: NEMP",
+        "Piano: NEMP",
+        "Synth: キリケン",
+        "Guitar: Jiho Park, NezMayo",
+        "Bass: MSPR",
+        "Drum: Lee_Shiba_Inu"
+      ]
+    }
   },
   {
     "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab Hifumi Daisuki(Jazz ver)",
     "subtitle": "Swing, Jazz",
     "src": "/musics/10.mp3",
-    "class": "bgm-arrange"
+    "class": "bgm-arrange",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Arranged: NEMP"
+      ]
+    }
   },
   {
     "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab Bunny Bunny Carrot Carrot (Latin Jazz Arrange)",
     "subtitle": "Bossa Nova, Jazz",
     "src": "/musics/11.mp3",
-    "class": "bgm-arrange"
+    "class": "bgm-arrange",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Arranged: NEMP"
+      ]
+    }
   },
   {
     "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab RE Aoharu Arrange (Jazz Fusion)",
     "subtitle": "Jazz Fusion",
     "src": "/musics/12.mp3",
-    "class": "bgm-arrange"
+    "class": "bgm-arrange",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Arranged: NEMP"
+      ]
+    }
   },
   {
     "title": "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab 夢路の花 (Jazz Arrange)",
     "subtitle": "Swing, Jazz",
     "src": "/musics/13.mp3",
-    "class": "bgm-arrange"
+    "class": "bgm-arrange",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Arranged: NEMP"
+      ]
+    }
   },
   {
     "title": "‘NyuMoon’ Main BGM (Night Ver)",
     "subtitle": "Acoustic, World, Ambient",
     "src": "/musics/02.mp3",
-    "class": "bgm-original"
+    "class": "bgm-original",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "Music: NEMP"
+      ]
+    }
   }
 ]
