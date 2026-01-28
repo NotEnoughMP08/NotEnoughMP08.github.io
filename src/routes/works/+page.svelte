@@ -140,7 +140,13 @@
     {
       embed: "https://www.youtube.com/embed/t8GSTUMmhv4?si=pAyHJlAr7VlBirCl",
       title: "주간일기",
-      subtitle: "Acoustic, Piano"
+      subtitle: "Acoustic, Piano",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Music: NEMP"
+        ]
+      }
     }
   ];
 
