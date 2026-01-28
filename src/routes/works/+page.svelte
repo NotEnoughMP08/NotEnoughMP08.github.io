@@ -106,8 +106,8 @@
                 <div class="featured-video-info">
                   <div class="featured-video-title">{video.title}</div>
                   <div class="featured-video-subtitle">{video.subtitle}</div>
-                  {#if video.credit && hoveredVideoIndex === index}
-                    <div class="video-credit">
+                  {#if video.credit}
+                    <div class="video-credit" class:visible={hoveredVideoIndex === index}>
                       <div class="video-credit-title">{video.credit.title}</div>
                       {#each video.credit.details as detail}
                         <div class="video-credit-detail">{detail}</div>
@@ -367,9 +367,18 @@
     background-color: var(--color-surface-variant);
     border-left: 3px solid var(--color-accent);
     padding: 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     margin-top: 8px;
-    font-size: 0.9em;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+  }
+
+  .video-credit.visible {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 8px;
   }
 
   .video-credit-title {
