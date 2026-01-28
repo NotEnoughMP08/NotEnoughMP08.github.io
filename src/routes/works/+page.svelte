@@ -6,6 +6,7 @@
   import { t } from "$lib/i18n";
 
   let hoveredVideoIndex: number | null = $state(null);
+  let playingVideoIndex: number | null = $state(null);
 
   const allSongOriginal = musics.filter((music) => music.class === "song-original");
   const featuredSong = allSongOriginal.find((music) => music.featured);
@@ -15,6 +16,20 @@
   const songArrange = musics.filter((music) => music.class === "song-arrange");
   const bgmOriginal = musics.filter((music) => music.class === "bgm-original");
   const bgmArrange = musics.filter((music) => music.class === "bgm-arrange");
+
+  function handleVideoMouseEnter(index: number) {
+    hoveredVideoIndex = index;
+  }
+
+  function handleVideoMouseLeave(index: number) {
+    if (playingVideoIndex !== index) {
+      hoveredVideoIndex = null;
+    }
+  }
+
+  function handleVideoClick(index: number) {
+    playingVideoIndex = playingVideoIndex === index ? null : index;
+  }
 
   const songArrangeVideos = [
     {
@@ -94,7 +109,7 @@
         {#if featuredSong.youtubeVideos?.length}
           <div class="featured-videos-grid">
             {#each featuredSong.youtubeVideos as video, index (video.embed)}
-              <div class="featured-video" onmouseenter={() => (hoveredVideoIndex = index)} onmouseleave={() => (hoveredVideoIndex = null)}>
+              <div class="featured-video" role="button" tabindex="0" onmouseenter={() => handleVideoMouseEnter(index)} onmouseleave={() => handleVideoMouseLeave(index)} onclick={() => handleVideoClick(index)} onkeydown={(e) => e.key === 'Enter' && handleVideoClick(index)}>
                 <div class="featured-video-embed">
                   <iframe
                     title={`${featuredSong.title} - ${video.title}`}
@@ -107,7 +122,7 @@
                   <div class="featured-video-title">{video.title}</div>
                   <div class="featured-video-subtitle">{video.subtitle}</div>
                   {#if video.credit}
-                    <div class="video-credit" class:visible={hoveredVideoIndex === index}>
+                    <div class="video-credit" class:visible={hoveredVideoIndex === index || playingVideoIndex === index}>
                       <div class="video-credit-title">{video.credit.title}</div>
                       {#each video.credit.details as detail}
                         <div class="video-credit-detail">{detail}</div>
