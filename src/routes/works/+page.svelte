@@ -7,6 +7,10 @@
 
   let hoveredVideoIndex: number | null = $state(null);
   let playingVideoIndex: number | null = $state(null);
+  let hoveredArrangeVideoIndex: number | null = $state(null);
+  let playingArrangeVideoIndex: number | null = $state(null);
+  let hoveredBgmVideoIndex: number | null = $state(null);
+  let playingBgmVideoIndex: number | null = $state(null);
 
   const allSongOriginal = musics.filter((music) => music.class === "song-original");
   const featuredSong = allSongOriginal.find((music) => music.featured);
@@ -29,6 +33,34 @@
 
   function handleVideoClick(index: number) {
     playingVideoIndex = playingVideoIndex === index ? null : index;
+  }
+
+  function handleArrangeVideoMouseEnter(index: number) {
+    hoveredArrangeVideoIndex = index;
+  }
+
+  function handleArrangeVideoMouseLeave(index: number) {
+    if (playingArrangeVideoIndex !== index) {
+      hoveredArrangeVideoIndex = null;
+    }
+  }
+
+  function handleArrangeVideoClick(index: number) {
+    playingArrangeVideoIndex = playingArrangeVideoIndex === index ? null : index;
+  }
+
+  function handleBgmVideoMouseEnter(index: number) {
+    hoveredBgmVideoIndex = index;
+  }
+
+  function handleBgmVideoMouseLeave(index: number) {
+    if (playingBgmVideoIndex !== index) {
+      hoveredBgmVideoIndex = null;
+    }
+  }
+
+  function handleBgmVideoClick(index: number) {
+    playingBgmVideoIndex = playingBgmVideoIndex === index ? null : index;
   }
 
   const songArrangeVideos = [
@@ -217,8 +249,8 @@
     {#if songArrangeVideos.length}
       <div class="videos-section videos-section-before">
         <div class="videos-grid">
-          {#each songArrangeVideos as video (video.embed)}
-            <div class="video-card">
+          {#each songArrangeVideos as video, index (video.embed)}
+            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleArrangeVideoMouseEnter(index)} onmouseleave={() => handleArrangeVideoMouseLeave(index)} onclick={() => handleArrangeVideoClick(index)} onkeydown={(e) => e.key === 'Enter' && handleArrangeVideoClick(index)}>
               <div class="featured-video-embed">
                 <iframe
                   title={`Song Arrange - ${video.title}`}
@@ -231,7 +263,7 @@
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
                 {#if video.credit}
-                  <div class="video-credit" class:visible={false}>
+                  <div class="video-credit" class:visible={hoveredArrangeVideoIndex === index || playingArrangeVideoIndex === index}>
                     <div class="video-credit-title">{video.credit.title}</div>
                     {#each video.credit.details as detail}
                       <div class="video-credit-detail">{detail}</div>
@@ -258,8 +290,8 @@
     {#if bgmOriginalVideos.length}
       <div class="videos-section videos-section-before">
         <div class="videos-grid">
-          {#each bgmOriginalVideos as video (video.embed)}
-            <div class="video-card">
+          {#each bgmOriginalVideos as video, index (video.embed)}
+            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleBgmVideoMouseEnter(index)} onmouseleave={() => handleBgmVideoMouseLeave(index)} onclick={() => handleBgmVideoClick(index)} onkeydown={(e) => e.key === 'Enter' && handleBgmVideoClick(index)}>
               <div class="featured-video-embed">
                 <iframe
                   title={`BGM Original - ${video.title}`}
@@ -272,7 +304,7 @@
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
                 {#if video.credit}
-                  <div class="video-credit" class:visible={false}>
+                  <div class="video-credit" class:visible={hoveredBgmVideoIndex === index || playingBgmVideoIndex === index}>
                     <div class="video-credit-title">{video.credit.title}</div>
                     {#each video.credit.details as detail}
                       <div class="video-credit-detail">{detail}</div>
