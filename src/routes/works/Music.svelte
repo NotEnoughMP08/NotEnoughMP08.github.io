@@ -19,6 +19,14 @@
   let isHovering = $state(false);
   let showCredit = $state(false);
 
+  function handleMouseEnter() {
+    isHovering = true;
+  }
+
+  function handleMouseLeave() {
+    isHovering = false;
+  }
+
   function togglePlayAudio() {
     if (!audio) {
       return;
@@ -39,7 +47,13 @@
       activeAudio.pause();
     }
 
-    audio.play();
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.error("Audio play error:", error);
+        isPlaying = false;
+      });
+    }
     isPlaying = true;
     setPlayingAudio(audio);
     if (credit) {
@@ -133,7 +147,8 @@
   };
 
   onMount(() => {
-    audio = new Audio(src);
+    audio = new Audio();
+    audio.src = src;
     audio.volume = 0.5;
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("timeupdate", handleTimeUpdate);
@@ -159,7 +174,7 @@
 </script>
 
 
-<div class="music" onmouseenter={() => (isHovering = true)} onmouseleave={() => (isHovering = false)}>
+<div class="music" role="region" aria-label={title} onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
   <div class="music-left">
     <div class="music-albumart">
       <img src={profile} alt="Album Art" width="100" height="100" />
