@@ -63,6 +63,23 @@
     playingBgmVideoIndex = playingBgmVideoIndex === index ? null : index;
   }
 
+  let hoveredArrangeVideoIndex2: number | null = $state(null);
+  let playingArrangeVideoIndex2: number | null = $state(null);
+
+  function handleArrangeVideo2MouseEnter(index: number) {
+    hoveredArrangeVideoIndex2 = index;
+  }
+
+  function handleArrangeVideo2MouseLeave(index: number) {
+    if (playingArrangeVideoIndex2 !== index) {
+      hoveredArrangeVideoIndex2 = null;
+    }
+  }
+
+  function handleArrangeVideo2Click(index: number) {
+    playingArrangeVideoIndex2 = playingArrangeVideoIndex2 === index ? null : index;
+  }
+
   const songArrangeVideos = [
     {
       embed: "https://www.youtube.com/embed/5YLJwhyczHc?si=BLaIhY9_ToivwHXu",
@@ -186,12 +203,36 @@
     {
       embed: "https://www.youtube.com/embed/9Ic4Xc7_Bcw?si=AoxzBZTSMYM2NNW1",
       title: "Team LiBRA - Blue Archive ‘0k@eri’ Band Arrange cover",
-      subtitle: "R&B, Band, Instrumental"
+      subtitle: "R&B, Band, Instrumental",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "'0k@eri' Band Arrange cover Band arrange from Team LiBRA",
+          "Arranged: NEMP",
+          "Piano: NEMP",
+          "Synth: キリケン",
+          "EWI: NezMayo",
+          "Guitar: Jiho Park",
+          "Bass: MSPR",
+          "Drum: Lee_Shiba_Inu",
+          "Art: HRNa",
+          "Animation: SSS[사메스]",
+          "Video: JunK"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/-ZPHtBoS8RQ?si=QBnXFBYecB3rZHAd&start=152",
       title: "Blue Archive OST Jazz Arrange Album - SCHALE Jazz Lab",
-      subtitle: "Jazz, Instrumental"
+      subtitle: "Jazz, Instrumental",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Arranged/Mix: Z:U, NEMP",
+          "Mastering: Z:U",
+          "Album art: bolchan"
+        ]
+      }
     }
   ];
 </script>
@@ -328,8 +369,8 @@
     {#if bgmArrangeVideos.length}
       <div class="videos-section videos-section-before">
         <div class="videos-grid">
-          {#each bgmArrangeVideos as video (video.embed)}
-            <div class="video-card">
+          {#each bgmArrangeVideos as video, index (video.embed)}
+            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleArrangeVideo2MouseEnter(index)} onmouseleave={() => handleArrangeVideo2MouseLeave(index)} onclick={() => handleArrangeVideo2Click(index)} onkeydown={(e) => e.key === 'Enter' && handleArrangeVideo2Click(index)}>
               <div class="featured-video-embed">
                 <iframe
                   title={`BGM Arrange - ${video.title}`}
@@ -341,6 +382,14 @@
               <div class="featured-video-info">
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
+                {#if video.credit}
+                  <div class="video-credit" class:visible={hoveredArrangeVideoIndex2 === index || playingArrangeVideoIndex2 === index}>
+                    <div class="video-credit-title">{video.credit.title}</div>
+                    {#each video.credit.details as detail}
+                      <div class="video-credit-detail">{detail}</div>
+                    {/each}
+                  </div>
+                {/if}
               </div>
             </div>
           {/each}
