@@ -18,17 +18,45 @@
       {
         "embed": "https://www.youtube.com/embed/yzbGt32REuU?si=bYhqsvq7ModZY5CB",
         "title": "여름의 아틀리에 - 블루 하이웨이",
-        "subtitle": "J-Rock, Band"
+        "subtitle": "J-Rock, Band",
+        "credit": {
+          "title": "【Credit】",
+          "details": [
+            "Music: NEMP",
+            "Vocal: 허브캣",
+            "Guitar: Luae",
+            "Illust: 꼴무링",
+            "PV: poko"
+          ]
+        }
       },
       {
         "embed": "https://www.youtube.com/embed/TdRs3Iug_jY?si=01BJ_VE4BEI_KEN1",
         "title": "분홍빛",
-        "subtitle": "Jazz"
+        "subtitle": "Jazz",
+        "credit": {
+          "title": "【Credit】",
+          "details": [
+            "Music: NEMP",
+            "Vocal: 배진욱",
+            "Lyrics: 배진욱",
+            "Mastering: JGY_J"
+          ]
+        }
       },
       {
         "embed": "https://www.youtube.com/embed/Qc9n8T44TrY?si=EervsFb1k9gTDksu",
         "title": "설레임",
-        "subtitle": "J-Pop"
+        "subtitle": "J-Pop",
+        "credit": {
+          "title": "【Credit】",
+          "details": [
+            "Music: NEMP",
+            "Vocal: 상아",
+            "Guitar: 정욱진(XLEZZY)",
+            "Mastering: JGY.J"
+          ]
+        }
       }
     ]
   },

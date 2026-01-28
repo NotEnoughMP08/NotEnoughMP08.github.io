@@ -104,6 +104,14 @@
                 <div class="featured-video-info">
                   <div class="featured-video-title">{video.title}</div>
                   <div class="featured-video-subtitle">{video.subtitle}</div>
+                  {#if video.credit}
+                    <div class="video-credit">
+                      <div class="video-credit-title">{video.credit.title}</div>
+                      {#each video.credit.details as detail}
+                        <div class="video-credit-detail">{detail}</div>
+                      {/each}
+                    </div>
+                  {/if}
                 </div>
               </div>
             {/each}
@@ -351,6 +359,28 @@
   .featured-video-subtitle {
     font-size: 1em;
     color: var(--color-muted);
+  }
+
+  .video-credit {
+    background-color: var(--color-surface-variant);
+    border-left: 3px solid var(--color-accent);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-size: 0.85em;
+  }
+
+  .video-credit-title {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+
+  .video-credit-detail {
+    font-size: 0.8em;
+    color: var(--color-muted);
+    line-height: 1.3;
   }
 
   @media (max-width: 600px) {
