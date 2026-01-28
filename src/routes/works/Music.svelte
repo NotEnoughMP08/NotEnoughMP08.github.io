@@ -17,14 +17,23 @@
   let audioVolume = $state(50);
   let showVolumeControl = $state(false);
   let isHovering = $state(false);
+  let isHoverDelayed = $state(false);
   let showCredit = $state(false);
+  let hoverTimeout: ReturnType<typeof setTimeout> | undefined;
 
   function handleMouseEnter() {
     isHovering = true;
+    hoverTimeout = setTimeout(() => {
+      isHoverDelayed = true;
+    }, 300);
   }
 
   function handleMouseLeave() {
     isHovering = false;
+    isHoverDelayed = false;
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+    }
   }
 
   function togglePlayAudio() {
@@ -158,6 +167,9 @@
   });
 
   onDestroy(() => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+    }
     if (!audio) {
       return;
     }
@@ -183,7 +195,7 @@
   <div class="music-right">
     <div class="music-title">{title}</div>
     <div class="music-subtitle">{subtitle}</div>
-    {#if (isHovering || showCredit) && credit}
+    {#if (isHoverDelayed || showCredit) && credit}
       <div class="music-credit">
         <div class="music-credit-title">{credit.title}</div>
         {#each credit.details as detail}
@@ -264,14 +276,14 @@
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 10px;
-    transition: opacity 0.3s ease;
-    animation: slideIn 0.3s ease;
+    transition: opacity 0.4s ease;
+    animation: slideIn 0.5s ease;
   }
 
   @keyframes slideIn {
     from {
       opacity: 0;
-      transform: translateY(-5px);
+      transform: translateY(-8px);
     }
     to {
       opacity: 1;
