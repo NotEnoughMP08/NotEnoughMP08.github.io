@@ -625,5 +625,16 @@
     .language-dropdown {
       align-self: flex-end;
     }
+
+    .theme-toggle {
+      bottom: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+    }
+
+    .theme-toggle i {
+      font-size: 1.1rem;
+    }
   }
 </style>
