@@ -47,9 +47,9 @@ const dictionary: Record<Locale, TranslationRecord> = {
             quote2:
                 '풍부한 서사성을 담은 사운드를 기반으로 오케스트라부터 록·재즈까지<br>다양한 장르를 아우르는 맞춤형 음악을 제공합니다.',
             intro1:
-                "넥슨 ‘블루아카이브’ 페스티벌, 라이브 아이돌 그룹 ‘IHOTEU’ 라이브,<br>버츄얼 유튜버 음원 제작 등 다양한 프로젝트 경험을 보유한 작곡가입니다.",
+                "넥슨 '블루아카이브' 페스티벌,<br>라이브 아이돌 그룹 'IHOTEU' 라이브,<br>버츄얼 유튜버 음원 제작 등<br>다양한 프로젝트 경험을 보유한 작곡가입니다.",
             intro2:
-                '어쿠스틱부터 메탈, 재즈까지 장르를 넘나드는 폭 넓은 제작 경험과<br>지속적인 연구 기술을 바탕으로 클라이언트의 비전을 음악적으로 실현하는<br>맞춤형 솔루션을 제공합니다',
+                '어쿠스틱부터 메탈, 재즈까지<br>장르를 넘나드는 폭 넓은 제작 경험과<br>지속적인 연구 기술을 바탕으로<br>클라이언트의 비전을 음악적으로 실현하는<br>맞춤형 솔루션을 제공합니다',
             workHistory: 'Work History',
             worksList: [
                 "IHOTEU 1st Anniversary : ‘BAND SET ONE MAN LIVE’ 오프닝 음원 총괄 제작, 키보드 세션 참여",
@@ -119,9 +119,9 @@ const dictionary: Record<Locale, TranslationRecord> = {
             quote2:
                 'Based on richly narrative sound, I provide tailor-made compositions across genres from orchestral to rock and jazz.',
             intro1:
-                "A composer experienced in projects such as Nexon's 'Blue Archive' festival, live performances with idol group 'IHOTEU', and production for virtual YouTubers.",
+                "A composer experienced in projects such as<br>Nexon's 'Blue Archive' festival,<br>live performances with idol group 'IHOTEU',<br>and production for virtual YouTubers.",
             intro2:
-                'With extensive experience from acoustic to metal and jazz, and ongoing technical research, I deliver custom musical solutions that bring each client’s vision to life.',
+                "With extensive experience from acoustic<br>to metal and jazz, and ongoing technical research,<br>I deliver custom musical solutions<br>that bring each client's vision to life.",
             workHistory: 'Work History',
             worksList: [
                 "IHOTEU 1st Anniversary: 'BAND SET ONE MAN LIVE' – lead producer and keyboard session performer.",
@@ -190,9 +190,9 @@ const dictionary: Record<Locale, TranslationRecord> = {
             quote2:
                 '豊かな物語性をもつサウンドを基に、オーケストラからロック、ジャズまで幅広いジャンルのオーダーメイド音楽を提供します。',
             intro1:
-                "ネクソン『ブルーアーカイブ』フェスティバルやアイドルグループ『IHOTEU』のライブ、VTuber音源制作など、多彩なプロジェクトに携わってきた作曲家です。",
+                "ネクソン『ブルーアーカイブ』フェスティバルや<br>アイドルグループ『IHOTEU』のライブ、<br>VTuber音源制作など、<br>多彩なプロジェクトに携わってきた作曲家です。",
             intro2:
-                'アコースティックからメタル、ジャズまで幅広い制作経験と、継続的な研究を通して、クライアントのビジョンを音楽で具現化するカスタムソリューションを提供します。',
+                'アコースティックからメタル、ジャズまで<br>幅広い制作経験と、継続的な研究を通して、<br>クライアントのビジョンを音楽で<br>具現化するカスタムソリューションを提供します。',
             workHistory: '活動経歴',
             worksList: [
                 "IHOTEU 1周年記念「BAND SET ONE MAN LIVE」オープニング楽曲の総合制作とキーボード演奏を担当。",
@@ -261,9 +261,9 @@ const dictionary: Record<Locale, TranslationRecord> = {
             quote2:
                 '以富有叙事感的声音为基础，提供涵盖管弦乐、摇滚及爵士等多种风格的定制音乐。',
             intro1:
-                "参与过 Nexon《蔚蓝档案》节日活动、偶像团体“IHOTEU”的现场演出，以及虚拟 YouTuber 曲目制作等多个项目的作曲家。",
+                '参与过 Nexon《蔚蓝档案》节日活动、<br>偶像团体"IHOTEU"的现场演出，<br>以及虚拟 YouTuber 曲目制作等<br>多个项目的作曲家。',
             intro2:
-                '凭借横跨原声、金属与爵士等广泛的制作经验和持续研究，为客户提供将愿景化为音乐的定制化解决方案。',
+                '凭借横跨原声、金属与爵士等<br>广泛的制作经验和持续研究，<br>为客户提供将愿景化为音乐的<br>定制化解决方案。',
             workHistory: '工作经历',
             worksList: [
                 "IHOTEU 一周年『BAND SET ONE MAN LIVE』开场音乐统筹制作及键盘演奏。",

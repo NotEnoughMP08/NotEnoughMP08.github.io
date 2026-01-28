@@ -98,6 +98,7 @@
   .profile-text {
     line-height: 1.6;
     width: 100%;
+    word-break: keep-all;
   }
 
   .work-section {
@@ -120,6 +121,7 @@
     margin: 0;
     padding-left: 24px;
     line-height: 1.7;
+    word-break: keep-all;
   }
 
   @media (max-width: 900px) {
