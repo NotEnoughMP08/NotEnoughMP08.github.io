@@ -473,8 +473,6 @@
   }
 
   .content .media-featured + .subtitle,
-  .content .videos-section + .subtitle,
-  .content .videos-section-before + .subtitle,
   .content .media-grid + .subtitle {
     margin-top: 32px;
   }

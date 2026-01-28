@@ -14,8 +14,8 @@
 	let hasExplicitPreference = $state(false);
 	const currentYear = new Date().getFullYear();
 	let isLanguageMenuOpen = $state(false);
-	let languageButton: HTMLButtonElement | null = null;
-	let languageMenu: HTMLUListElement | null = null;
+	let languageButton = $state<HTMLButtonElement | null>(null);
+	let languageMenu = $state<HTMLUListElement | null>(null);
 
 	const getLanguageLabel = (code: Locale) =>
 		LANG_OPTIONS.find((option) => option.code === code)?.label ?? code.toUpperCase();
@@ -237,7 +237,7 @@
         aria-expanded={isLanguageMenuOpen}
         aria-controls="language-menu"
         aria-label={$t('language.srLabel')}
-        on:click={toggleLanguageMenu}
+        onclick={toggleLanguageMenu}
         bind:this={languageButton}>
         <span class="language-label">{getLanguageLabel($locale)}</span>
       </button>
@@ -246,10 +246,11 @@
           id="language-menu"
           class="language-menu"
           role="listbox"
+          tabindex="-1"
           aria-label={$t('language.srLabel')}
           aria-activedescendant={`language-option-${$locale}`}
           bind:this={languageMenu}
-          on:keydown={handleLanguageMenuKeydown}>
+          onkeydown={handleLanguageMenuKeydown}>
           {#each LANG_OPTIONS as option}
             <li>
               <button
@@ -260,7 +261,7 @@
                 aria-selected={$locale === option.code}
                 data-option={option.code}
                 id={`language-option-${option.code}`}
-                on:click={() => handleLanguageChange(option.code)}>
+                onclick={() => handleLanguageChange(option.code)}>
                 <span>{option.label}</span>
                 {#if $locale === option.code}
                   <span class="language-option-check" aria-hidden="true">
@@ -281,7 +282,7 @@
 <button
 	type="button"
 	class="theme-toggle"
-	on:click={toggleTheme}
+	onclick={toggleTheme}
 	aria-label={theme === 'dark' ? $t('theme.switchToLight') : $t('theme.switchToDark')}>
 	<i class={`bi ${theme === 'dark' ? 'bi-sun-fill' : 'bi-moon-stars-fill'}`} aria-hidden="true"></i>
 	<span class="sr-only">{theme === 'dark' ? $t('theme.switchToLight') : $t('theme.switchToDark')}</span>

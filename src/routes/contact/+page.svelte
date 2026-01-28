@@ -27,7 +27,6 @@
       form.reset();
     } catch (error) {
       alert(String(translate("contact.error")));
-      console.log(error);
     }
   }
 </script>
