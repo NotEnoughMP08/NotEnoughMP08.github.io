@@ -7,10 +7,18 @@
 
   let hoveredVideoIndex: number | null = $state(null);
   let playingVideoIndex: number | null = $state(null);
+  let isVideoHoverDelayed: number | null = $state(null);
+  let videoHoverTimeout: ReturnType<typeof setTimeout> | null = null;
+  
   let hoveredArrangeVideoIndex: number | null = $state(null);
   let playingArrangeVideoIndex: number | null = $state(null);
+  let isArrangeVideoHoverDelayed: number | null = $state(null);
+  let arrangeVideoHoverTimeout: ReturnType<typeof setTimeout> | null = null;
+  
   let hoveredBgmVideoIndex: number | null = $state(null);
   let playingBgmVideoIndex: number | null = $state(null);
+  let isBgmVideoHoverDelayed: number | null = $state(null);
+  let bgmVideoHoverTimeout: ReturnType<typeof setTimeout> | null = null;
 
   const allSongOriginal = musics.filter((music) => music.class === "song-original");
   const featuredSong = allSongOriginal.find((music) => music.featured);
@@ -23,11 +31,17 @@
 
   function handleVideoMouseEnter(index: number) {
     hoveredVideoIndex = index;
+    if (videoHoverTimeout) clearTimeout(videoHoverTimeout);
+    videoHoverTimeout = setTimeout(() => {
+      isVideoHoverDelayed = index;
+    }, 300);
   }
 
   function handleVideoMouseLeave(index: number) {
+    if (videoHoverTimeout) clearTimeout(videoHoverTimeout);
     if (playingVideoIndex !== index) {
       hoveredVideoIndex = null;
+      isVideoHoverDelayed = null;
     }
   }
 
@@ -37,11 +51,17 @@
 
   function handleArrangeVideoMouseEnter(index: number) {
     hoveredArrangeVideoIndex = index;
+    if (arrangeVideoHoverTimeout) clearTimeout(arrangeVideoHoverTimeout);
+    arrangeVideoHoverTimeout = setTimeout(() => {
+      isArrangeVideoHoverDelayed = index;
+    }, 300);
   }
 
   function handleArrangeVideoMouseLeave(index: number) {
+    if (arrangeVideoHoverTimeout) clearTimeout(arrangeVideoHoverTimeout);
     if (playingArrangeVideoIndex !== index) {
       hoveredArrangeVideoIndex = null;
+      isArrangeVideoHoverDelayed = null;
     }
   }
 
@@ -51,11 +71,17 @@
 
   function handleBgmVideoMouseEnter(index: number) {
     hoveredBgmVideoIndex = index;
+    if (bgmVideoHoverTimeout) clearTimeout(bgmVideoHoverTimeout);
+    bgmVideoHoverTimeout = setTimeout(() => {
+      isBgmVideoHoverDelayed = index;
+    }, 300);
   }
 
   function handleBgmVideoMouseLeave(index: number) {
+    if (bgmVideoHoverTimeout) clearTimeout(bgmVideoHoverTimeout);
     if (playingBgmVideoIndex !== index) {
       hoveredBgmVideoIndex = null;
+      isBgmVideoHoverDelayed = null;
     }
   }
 
@@ -65,14 +91,22 @@
 
   let hoveredArrangeVideoIndex2: number | null = $state(null);
   let playingArrangeVideoIndex2: number | null = $state(null);
+  let isArrangeVideo2HoverDelayed: number | null = $state(null);
+  let arrangeVideo2HoverTimeout: ReturnType<typeof setTimeout> | null = null;
 
   function handleArrangeVideo2MouseEnter(index: number) {
     hoveredArrangeVideoIndex2 = index;
+    if (arrangeVideo2HoverTimeout) clearTimeout(arrangeVideo2HoverTimeout);
+    arrangeVideo2HoverTimeout = setTimeout(() => {
+      isArrangeVideo2HoverDelayed = index;
+    }, 300);
   }
 
   function handleArrangeVideo2MouseLeave(index: number) {
+    if (arrangeVideo2HoverTimeout) clearTimeout(arrangeVideo2HoverTimeout);
     if (playingArrangeVideoIndex2 !== index) {
       hoveredArrangeVideoIndex2 = null;
+      isArrangeVideo2HoverDelayed = null;
     }
   }
 
@@ -263,7 +297,7 @@
                   <div class="featured-video-title">{video.title}</div>
                   <div class="featured-video-subtitle">{video.subtitle}</div>
                   {#if video.credit}
-                    <div class="video-credit" class:visible={hoveredVideoIndex === index || playingVideoIndex === index}>
+                    <div class="video-credit" class:visible={isVideoHoverDelayed === index || playingVideoIndex === index}>
                       <div class="video-credit-title">{video.credit.title}</div>
                       {#each video.credit.details as detail}
                         <div class="video-credit-detail">{detail}</div>
@@ -304,7 +338,7 @@
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
                 {#if video.credit}
-                  <div class="video-credit" class:visible={hoveredArrangeVideoIndex === index || playingArrangeVideoIndex === index}>
+                  <div class="video-credit" class:visible={isArrangeVideoHoverDelayed === index || playingArrangeVideoIndex === index}>
                     <div class="video-credit-title">{video.credit.title}</div>
                     {#each video.credit.details as detail}
                       <div class="video-credit-detail">{detail}</div>
@@ -345,7 +379,7 @@
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
                 {#if video.credit}
-                  <div class="video-credit" class:visible={hoveredBgmVideoIndex === index || playingBgmVideoIndex === index}>
+                  <div class="video-credit" class:visible={isBgmVideoHoverDelayed === index || playingBgmVideoIndex === index}>
                     <div class="video-credit-title">{video.credit.title}</div>
                     {#each video.credit.details as detail}
                       <div class="video-credit-detail">{detail}</div>
@@ -383,7 +417,7 @@
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
                 {#if video.credit}
-                  <div class="video-credit" class:visible={hoveredArrangeVideoIndex2 === index || playingArrangeVideoIndex2 === index}>
+                  <div class="video-credit" class:visible={isArrangeVideo2HoverDelayed === index || playingArrangeVideoIndex2 === index}>
                     <div class="video-credit-title">{video.credit.title}</div>
                     {#each video.credit.details as detail}
                       <div class="video-credit-detail">{detail}</div>
