@@ -35,22 +35,54 @@
     {
       embed: "https://www.youtube.com/embed/5YLJwhyczHc?si=BLaIhY9_ToivwHXu",
       title: "한결(Hangyeol) - 나의 우주(My Universe)",
-      subtitle: "Pop, Rock"
+      subtitle: "Pop, Rock",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Music Produced: 한결 (HANGYEOL)",
+          "Lyrics: 한결 (HANGYEOL)",
+          "Composed: 한결 (HANGYEOL)",
+          "Arranged: NEMP, 김찬영, Ray"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/BoCKhWamZ6I?si=4YjzqjFZwM5n4N8n",
-      title: "SNS코믹 ‘이웃집 남동생이 초등학생인데 너무 잘해! 엔딩 테마 ‘운명’",
-      subtitle: "K-pop Ballad"
+      title: "SNS코믹 '이웃집 남동생이 초등학생인데 너무 잘해! 엔딩 테마 '운명'",
+      subtitle: "K-pop Ballad",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Vocal/Lyrics: RoA",
+          "Composed: 마감요정 (DREAMSCAPEY)",
+          "Arranged: N4ML (DREAMSCAPEY), NEMP",
+          "Mixi/Mastering: N4ML (DREAMSCAPEY)",
+          "Guitar: PoDoDan (DREAMSCAPEY)",
+          "Bass: CK (DREAMSCAPEY)"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/RogYuIRaB74?si=QGWrZvhVwcXMH5tZ",
-      title: "엘시(Elsea) 1주년 콘서트 ‘태연 - I’",
-      subtitle: "K-pop, Rock"
+      title: "엘시(Elsea) 1주년 콘서트 '태연 - I'",
+      subtitle: "K-pop, Rock",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Arranged/Piano/Chorus: NEMP"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/MMHbFSSwi2s?si=ycYqkTYGELjhPNBG",
-      title: "엘시(Elsea) 1주년 콘서트 ‘Ed Sheeran - Perfect’",
-      subtitle: "Acoustic Pop"
+      title: "엘시(Elsea) 1주년 콘서트 'Ed Sheeran - Perfect'",
+      subtitle: "Acoustic Pop",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Arranged: NEMP"
+        ]
+      }
     }
   ];
 
@@ -58,22 +90,52 @@
     {
       embed: "https://www.youtube.com/embed/7bd0YMP6BgQ?si=4Gi5miO7J1rbtHAC",
       title: "Journey",
-      subtitle: "Orchestral, World"
+      subtitle: "Orchestral, World",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Music: NEMP",
+          "Mastering: s_dan0",
+          "Illust: AsH",
+          "VFX: GamJji"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/PwXO4YZT5MI?si=7vf5MVIbUdtgChR1",
       title: "Typewriter",
-      subtitle: "Acoustic"
+      subtitle: "Acoustic",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Music: NEMP",
+          "Illustration: attwn_park"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/NCrUf-pYmFY?si=vl0LDqS7Kg54dUrB",
       title: "雪国(설국)",
-      subtitle: "Acoustic, World"
+      subtitle: "Acoustic, World",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Music: NEMP",
+          "Illustration: cheon_do"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/CauhOsP6CRI?si=B7ZaaXpj0ljw6jfJ",
       title: "Final Stage",
-      subtitle: "Orchestral, Epic"
+      subtitle: "Orchestral, Epic",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Music: NEMP",
+          "VFX: GamJji"
+        ]
+      }
     },
     {
       embed: "https://www.youtube.com/embed/t8GSTUMmhv4?si=pAyHJlAr7VlBirCl",
@@ -162,6 +224,14 @@
               <div class="featured-video-info">
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
+                {#if video.credit}
+                  <div class="video-credit" class:visible={false}>
+                    <div class="video-credit-title">{video.credit.title}</div>
+                    {#each video.credit.details as detail}
+                      <div class="video-credit-detail">{detail}</div>
+                    {/each}
+                  </div>
+                {/if}
               </div>
             </div>
           {/each}
@@ -195,6 +265,14 @@
               <div class="featured-video-info">
                 <div class="featured-video-title">{video.title}</div>
                 <div class="featured-video-subtitle">{video.subtitle}</div>
+                {#if video.credit}
+                  <div class="video-credit" class:visible={false}>
+                    <div class="video-credit-title">{video.credit.title}</div>
+                    {#each video.credit.details as detail}
+                      <div class="video-credit-detail">{detail}</div>
+                    {/each}
+                  </div>
+                {/if}
               </div>
             </div>
           {/each}
