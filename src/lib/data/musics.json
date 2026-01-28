@@ -61,62 +61,6 @@
     ]
   },
   {
-    "title": "한결(Hangyeol) - 나의 우주(My Universe)",
-    "subtitle": "Pop, Vocal",
-    "src": "/musics/hangyeol.mp3",
-    "class": "song-original",
-    "credit": {
-      "title": "【Credit】",
-      "details": [
-        "Music Produced: 한결 (HANGYEOL)",
-        "Lyrics: 한결 (HANGYEOL)",
-        "Composed: 한결 (HANGYEOL)",
-        "Arranged: NEMP, 김찬영, Ray"
-      ]
-    }
-  },
-  {
-    "title": "SNS 코믹 「이웃집 남동생이 초등학생인데 너무 잘해!」엔딩",
-    "subtitle": "Pop, Vocal",
-    "src": "/musics/neighbor.mp3",
-    "class": "song-original",
-    "credit": {
-      "title": "【Credit】",
-      "details": [
-        "Vocal/Lyrics: RoA",
-        "Composed: 마감요정 (DREAMSCAPEY)",
-        "Arranged: N4ML (DREAMSCAPEY), NEMP",
-        "Mixi/Mastering: N4ML (DREAMSCAPEY)",
-        "Guitar: PoDoDan (DREAMSCAPEY)",
-        "Bass: CK (DREAMSCAPEY)"
-      ]
-    }
-  },
-  {
-    "title": "엘시(Elsea) 1주년 콘서트 '태연 - I'",
-    "subtitle": "Ballad, Piano",
-    "src": "/musics/elsea1.mp3",
-    "class": "song-arrange",
-    "credit": {
-      "title": "【Credit】",
-      "details": [
-        "Arranged/Piano/Chorus: NEMP"
-      ]
-    }
-  },
-  {
-    "title": "엘시(Elsea) 1주년 콘서트 'Ed Sheeran - Perfect'",
-    "subtitle": "Ballad, Piano",
-    "src": "/musics/elsea2.mp3",
-    "class": "song-arrange",
-    "credit": {
-      "title": "【Credit】",
-      "details": [
-        "Arranged: NEMP"
-      ]
-    }
-  },
-  {
     "title": "Journey",
     "subtitle": "Cinematic, Orchestral",
     "src": "/musics/journey.mp3",
