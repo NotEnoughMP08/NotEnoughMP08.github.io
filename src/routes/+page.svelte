@@ -14,6 +14,7 @@
     <div class="text">
       <div class="name">NEMP</div>
       <div class="description">{$t("home.description")}</div>
+      <div class="description">{$t("home.description2")}</div>
       <div class="contact">
         <a href="https://x.com/NotEnoughMP" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
           <i class="bi bi-twitter-x" style="font-size: 1.5em; color: white; margin-right: 10px;"></i>

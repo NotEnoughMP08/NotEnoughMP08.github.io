@@ -40,7 +40,8 @@ const dictionary: Record<Locale, TranslationRecord> = {
             copyright: 'All rights reserved.'
         },
         home: {
-            description: 'Composer, Keyboard Player'
+            description: 'Composer, Keyboard Player',
+            description2: 'Providing musical solutions'
         },
         about: {
             quote1: '당신의 이야기 속 감정과 순간을 음악으로 섬세히 그려내는 작곡가입니다.',
@@ -112,7 +113,8 @@ const dictionary: Record<Locale, TranslationRecord> = {
             copyright: 'All rights reserved.'
         },
         home: {
-            description: 'Composer, Keyboard Player'
+            description: 'Composer, Keyboard Player',
+            description2: 'Providing musical solutions'
         },
         about: {
             quote1: 'A composer who delicately expresses the emotions and moments within your story through music.',
@@ -183,7 +185,8 @@ const dictionary: Record<Locale, TranslationRecord> = {
             copyright: 'All rights reserved.'
         },
         home: {
-            description: '作曲家・キーボードプレイヤー'
+            description: '作曲家・キーボードプレイヤー',
+            description2: 'Providing musical solutions'
         },
         about: {
             quote1: 'あなたの物語に込められた感情や瞬間を、音楽で繊細に描き出す作曲家です。',
@@ -254,7 +257,8 @@ const dictionary: Record<Locale, TranslationRecord> = {
             copyright: '版权所有。'
         },
         home: {
-            description: '作曲家・键盘演奏者'
+            description: '作曲家・键盘演奏者',
+            description2: 'Providing musical solutions'
         },
         about: {
             quote1: '一位以音乐细腻描绘您故事中情感与瞬间的作曲家。',
