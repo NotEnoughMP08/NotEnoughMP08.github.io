@@ -579,7 +579,7 @@
     background-color: var(--color-surface-variant);
     border-left: 3px solid var(--color-accent);
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 0;
     margin-top: 8px;
     max-height: 0;
     overflow: hidden;
