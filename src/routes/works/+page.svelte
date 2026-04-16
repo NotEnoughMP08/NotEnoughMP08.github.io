@@ -273,6 +273,85 @@
 
 <Header />
 <div class="container">
+  <div class="title">{$t("works.bgm")}</div>
+  <div class="content">
+    <div class="subtitle">{$t("works.original")}</div>
+    {#if bgmOriginalVideos.length}
+      <div class="videos-section videos-section-before">
+        <div class="videos-grid">
+          {#each bgmOriginalVideos as video, index (video.embed)}
+            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleBgmVideoMouseEnter(index)} onmouseleave={() => handleBgmVideoMouseLeave(index)} onclick={() => handleBgmVideoClick(index)} onkeydown={(e) => e.key === 'Enter' && handleBgmVideoClick(index)}>
+              <div class="featured-video-embed">
+                <iframe
+                  title={`BGM Original - ${video.title}`}
+                  src={video.embed}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="featured-video-info">
+                <div class="featured-video-title">{video.title}</div>
+                <div class="featured-video-subtitle">{video.subtitle}</div>
+                {#if video.credit}
+                  <div class="video-credit" class:visible={isBgmVideoHoverDelayed === index || playingBgmVideoIndex === index}>
+                    <div class="video-credit-title">{video.credit.title}</div>
+                    {#each video.credit.details as detail}
+                      <div class="video-credit-detail">{detail}</div>
+                    {/each}
+                  </div>
+                {/if}
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
+    <div class="media-grid">
+      {#each bgmOriginal as music (music.title)}
+        <div class="media-item">
+          <Music {music} />
+        </div>
+      {/each}
+    </div>
+    <div class="subtitle">{$t("works.arrange")}</div>
+    {#if bgmArrangeVideos.length}
+      <div class="videos-section videos-section-before">
+        <div class="videos-grid">
+          {#each bgmArrangeVideos as video, index (video.embed)}
+            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleArrangeVideo2MouseEnter(index)} onmouseleave={() => handleArrangeVideo2MouseLeave(index)} onclick={() => handleArrangeVideo2Click(index)} onkeydown={(e) => e.key === 'Enter' && handleArrangeVideo2Click(index)}>
+              <div class="featured-video-embed">
+                <iframe
+                  title={`BGM Arrange - ${video.title}`}
+                  src={video.embed}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="featured-video-info">
+                <div class="featured-video-title">{video.title}</div>
+                <div class="featured-video-subtitle">{video.subtitle}</div>
+                {#if video.credit}
+                  <div class="video-credit" class:visible={isArrangeVideo2HoverDelayed === index || playingArrangeVideoIndex2 === index}>
+                    <div class="video-credit-title">{video.credit.title}</div>
+                    {#each video.credit.details as detail}
+                      <div class="video-credit-detail">{detail}</div>
+                    {/each}
+                  </div>
+                {/if}
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
+    <div class="media-grid">
+      {#each bgmArrange as music (music.title)}
+        <div class="media-item">
+          <Music {music} />
+        </div>
+      {/each}
+    </div>
+  </div>
   <div class="title">{$t("works.song")}</div>
   <div class="content">
     <div class="subtitle">{$t("works.original")}</div>
@@ -353,85 +432,6 @@
     {/if}
     <div class="media-grid song-arrange-grid">
       {#each songArrange as music (music.title)}
-        <div class="media-item">
-          <Music {music} />
-        </div>
-      {/each}
-    </div>
-  </div>
-  <div class="title">{$t("works.bgm")}</div>
-  <div class="content">
-    <div class="subtitle">{$t("works.original")}</div>
-    {#if bgmOriginalVideos.length}
-      <div class="videos-section videos-section-before">
-        <div class="videos-grid">
-          {#each bgmOriginalVideos as video, index (video.embed)}
-            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleBgmVideoMouseEnter(index)} onmouseleave={() => handleBgmVideoMouseLeave(index)} onclick={() => handleBgmVideoClick(index)} onkeydown={(e) => e.key === 'Enter' && handleBgmVideoClick(index)}>
-              <div class="featured-video-embed">
-                <iframe
-                  title={`BGM Original - ${video.title}`}
-                  src={video.embed}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="featured-video-info">
-                <div class="featured-video-title">{video.title}</div>
-                <div class="featured-video-subtitle">{video.subtitle}</div>
-                {#if video.credit}
-                  <div class="video-credit" class:visible={isBgmVideoHoverDelayed === index || playingBgmVideoIndex === index}>
-                    <div class="video-credit-title">{video.credit.title}</div>
-                    {#each video.credit.details as detail}
-                      <div class="video-credit-detail">{detail}</div>
-                    {/each}
-                  </div>
-                {/if}
-              </div>
-            </div>
-          {/each}
-        </div>
-      </div>
-    {/if}
-    <div class="media-grid">
-      {#each bgmOriginal as music (music.title)}
-        <div class="media-item">
-          <Music {music} />
-        </div>
-      {/each}
-    </div>
-    <div class="subtitle">{$t("works.arrange")}</div>
-    {#if bgmArrangeVideos.length}
-      <div class="videos-section videos-section-before">
-        <div class="videos-grid">
-          {#each bgmArrangeVideos as video, index (video.embed)}
-            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleArrangeVideo2MouseEnter(index)} onmouseleave={() => handleArrangeVideo2MouseLeave(index)} onclick={() => handleArrangeVideo2Click(index)} onkeydown={(e) => e.key === 'Enter' && handleArrangeVideo2Click(index)}>
-              <div class="featured-video-embed">
-                <iframe
-                  title={`BGM Arrange - ${video.title}`}
-                  src={video.embed}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="featured-video-info">
-                <div class="featured-video-title">{video.title}</div>
-                <div class="featured-video-subtitle">{video.subtitle}</div>
-                {#if video.credit}
-                  <div class="video-credit" class:visible={isArrangeVideo2HoverDelayed === index || playingArrangeVideoIndex2 === index}>
-                    <div class="video-credit-title">{video.credit.title}</div>
-                    {#each video.credit.details as detail}
-                      <div class="video-credit-detail">{detail}</div>
-                    {/each}
-                  </div>
-                {/if}
-              </div>
-            </div>
-          {/each}
-        </div>
-      </div>
-    {/if}
-    <div class="media-grid">
-      {#each bgmArrange as music (music.title)}
         <div class="media-item">
           <Music {music} />
         </div>
