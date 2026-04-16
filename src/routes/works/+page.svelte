@@ -116,20 +116,6 @@
 
   const songArrangeVideos = [
     {
-      embed: "https://www.youtube.com/embed/5YLJwhyczHc?si=BLaIhY9_ToivwHXu",
-      title: "한결(Hangyeol) - 나의 우주(My Universe)",
-      subtitle: "Pop, Rock",
-      credit: {
-        title: "【Credit】",
-        details: [
-          "Music Produced: 한결 (HANGYEOL)",
-          "Lyrics: 한결 (HANGYEOL)",
-          "Composed: 한결 (HANGYEOL)",
-          "Arranged: NEMP, 김찬영, Ray"
-        ]
-      }
-    },
-    {
       embed: "https://www.youtube.com/embed/BoCKhWamZ6I?si=4YjzqjFZwM5n4N8n",
       title: "SNS코믹 '이웃집 남동생이 초등학생인데 너무 잘해! 엔딩 테마 '운명'",
       subtitle: "K-pop Ballad",

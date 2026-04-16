@@ -14,7 +14,22 @@
         "Chorus Guide: 6FU; / NEMP"
       ]
     },
-    "youtubeVideos": []
+    "youtubeVideos": [
+      {
+        "embed": "https://www.youtube.com/embed/5YLJwhyczHc?si=BLaIhY9_ToivwHXu",
+        "title": "한결(Hangyeol) - 나의 우주(My Universe)",
+        "subtitle": "Pop, Rock",
+        "credit": {
+          "title": "【Credit】",
+          "details": [
+            "Music Produced: 한결 (HANGYEOL)",
+            "Lyrics: 한결 (HANGYEOL)",
+            "Composed: 한결 (HANGYEOL)",
+            "Arranged: NEMP, 김찬영, Ray"
+          ]
+        }
+      }
+    ]
   },
   {
     "title": "Title Sequence",
