@@ -185,18 +185,6 @@
       }
     },
     {
-      embed: "https://www.youtube.com/embed/PwXO4YZT5MI?si=7vf5MVIbUdtgChR1",
-      title: "Typewriter",
-      subtitle: "Acoustic",
-      credit: {
-        title: "【Credit】",
-        details: [
-          "Music: NEMP",
-          "Illustration: attwn_park"
-        ]
-      }
-    },
-    {
       embed: "https://www.youtube.com/embed/NCrUf-pYmFY?si=vl0LDqS7Kg54dUrB",
       title: "雪国(설국)",
       subtitle: "Acoustic, World",
