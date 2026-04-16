@@ -331,9 +331,6 @@
     <div class="subtitle">{$t("works.original")}</div>
     {#if featuredSong}
       <div class="media-featured">
-        <div class="featured-card">
-          <Music music={featuredSong} />
-        </div>
         {#if featuredSong.youtubeVideos?.length}
           <div class="featured-videos-grid">
             {#each featuredSong.youtubeVideos as video, index (video.embed)}
@@ -362,6 +359,9 @@
             {/each}
           </div>
         {/if}
+        <div class="featured-card">
+          <Music music={featuredSong} />
+        </div>
       </div>
     {/if}
     {#if songOriginal.length}
