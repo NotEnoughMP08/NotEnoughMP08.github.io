@@ -73,18 +73,15 @@
     }
   },
   {
-    "title": "Team LiBRA - Blue Archive ‘Signal of Abydos’ Band Arrange cover",
-    "subtitle": "Jazz Fusion, Funk, Band, Instrumental",
-    "src": "/musics/08.mp3",
+    "title": "[砕月]Broken Moon ~ Dancing in the moonlight",
+    "subtitle": "Jazz",
+    "src": "https://docs.google.com/uc?export=download&id=1YYsU1IJTkLnbaI-vwGNjUhTD8HxiZTVA",
     "class": "bgm-arrange",
     "credit": {
       "title": "【Credit】",
       "details": [
-        "'Signal of Abydos' Band Arrange cover Band arrange from Team LiBRA",
         "Arranged: NEMP",
-        "Piano: NEMP",
-        "Synth: キリケン",
-        "Guitar: Jiho Park, NezMayo",
+        "Guitar: NezMayo",
         "Bass: MSPR",
         "Drum: Lee_Shiba_Inu"
       ]
@@ -99,6 +96,24 @@
       "title": "【Credit】",
       "details": [
         "Arranged: NEMP"
+      ]
+    }
+  },
+  {
+    "title": "Team LiBRA - Blue Archive ‘Signal of Abydos’ Band Arrange cover",
+    "subtitle": "Jazz Fusion, Funk, Band, Instrumental",
+    "src": "/musics/08.mp3",
+    "class": "bgm-arrange",
+    "credit": {
+      "title": "【Credit】",
+      "details": [
+        "'Signal of Abydos' Band Arrange cover Band arrange from Team LiBRA",
+        "Arranged: NEMP",
+        "Piano: NEMP",
+        "Synth: キリケン",
+        "Guitar: Jiho Park, NezMayo",
+        "Bass: MSPR",
+        "Drum: Lee_Shiba_Inu"
       ]
     }
   },
