@@ -285,6 +285,61 @@
           "Vocal: Raon"
         ]
       }
+    },
+    {
+      embed: "https://www.youtube.com/embed/C7xJlSXmVWQ",
+      title: "First Original Song 「Way to the LiBRA」",
+      subtitle: "",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Composer: キリケン",
+          "Synth: NEMP, キリケン",
+          "Guitar: Jiho Park, NezMayo, Hyunseung Lee",
+          "Bass: MSPR",
+          "Drum: Lee_Shiba_Inu",
+          "Art: HRNa",
+          "Animation: SSS[사메ス]",
+          "Video: JunK"
+        ]
+      }
+    },
+    {
+      embed: "https://www.youtube.com/embed/PkuASBCxqcc?si=M9b-U9EqzdCbvqhc",
+      title: "Team LiBRA 2nd Original Song 「Galaxy SODA」",
+      subtitle: "",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Composer: NezMayo",
+          "Synth: NEMP",
+          "Piano: キリケン",
+          "Guitar: Jiho Park, NezMayo, JungMato",
+          "Bass: MSPR",
+          "Drum: Lee_Shiba_Inu",
+          "Art: HRNa",
+          "Animation: SSS[사メス]",
+          "Video: JunK"
+        ]
+      }
+    },
+    {
+      embed: "https://www.youtube.com/embed/A9zaW2gLsoQ",
+      title: "ブルーアーカイブ】 Cherry Berry Merry Band Arrange cover",
+      subtitle: "",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Arranged: Jiho Park",
+          "Synth: NEMP, キリケン",
+          "Guitar: Jiho Park, NezMayo, Hyunseung Lee",
+          "Bass: MSPR",
+          "Drum: Lee_Shiba_Inu",
+          "Art: HRNa",
+          "Animation: SSS[사メ스]",
+          "Video: JunK"
+        ]
+      }
     }
   ];
 </script>
@@ -465,14 +520,14 @@
             <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleKeyboardVideoMouseEnter(index)} onmouseleave={() => handleKeyboardVideoMouseLeave(index)} onclick={() => handleKeyboardVideoClick(index)} onkeydown={(e) => e.key === 'Enter' && handleKeyboardVideoClick(index)}>
               <div class="featured-video-embed">
                 <iframe
-                  title={$t(video.titleKey)}
+                  title={video.title ? video.title : $t(video.titleKey)}
                   src={video.embed}
                   loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen></iframe>
               </div>
               <div class="featured-video-info">
-                <div class="featured-video-title">{$t(video.titleKey)}</div>
+                <div class="featured-video-title">{video.title ? video.title : $t(video.titleKey)}</div>
                 {#if video.subtitle}
                   <div class="featured-video-subtitle">{video.subtitle}</div>
                 {/if}
