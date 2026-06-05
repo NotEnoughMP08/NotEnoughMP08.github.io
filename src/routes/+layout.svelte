@@ -332,7 +332,7 @@
     --color-muted: #9ca4b5;
     --color-surface: rgba(25, 30, 40, 0.85);
     --color-border: rgba(255, 255, 255, 0.08);
-    --color-accent: #6f95ff;
+    --color-accent: #9b7b5a;
     --color-toggle-bg: rgba(9, 12, 20, 0.9);
     --color-toggle-border: rgba(204, 212, 230, 0.28);
     --color-toggle-icon: #f7f9ff;
