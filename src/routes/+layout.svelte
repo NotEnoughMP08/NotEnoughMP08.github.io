@@ -327,20 +327,20 @@
   }
 
   :global(:root[data-theme='dark']) {
-    --color-background: #0f1115;
+    --color-background: #171c26;
     --color-text: #f0f3f9;
     --color-muted: #9ca4b5;
-    --color-surface: rgba(25, 30, 40, 0.85);
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-accent: #b08d6f;
-    --color-toggle-bg: rgba(9, 12, 20, 0.9);
-    --color-toggle-border: rgba(204, 212, 230, 0.28);
+    --color-surface: rgba(31, 38, 52, 0.92);
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-accent: #9b7b5a;
+    --color-toggle-bg: rgba(14, 18, 28, 0.94);
+    --color-toggle-border: rgba(255, 255, 255, 0.12);
     --color-toggle-icon: #f7f9ff;
     --color-toggle-shadow: rgba(0, 0, 0, 0.45);
-    --color-surface-contrast: rgba(40, 48, 64, 0.92);
+    --color-surface-contrast: rgba(38, 48, 62, 0.94);
     --color-border-strong: rgba(255, 255, 255, 0.16);
-    --language-toggle-bg: linear-gradient(135deg, rgba(51, 61, 82, 0.94), rgba(32, 41, 60, 0.86));
-    --language-toggle-border: rgba(255, 255, 255, 0.18);
+    --language-toggle-bg: linear-gradient(135deg, rgba(43, 52, 69, 0.94), rgba(29, 36, 50, 0.86));
+    --language-toggle-border: rgba(255, 255, 255, 0.16);
     --language-toggle-shadow: rgba(4, 8, 20, 0.6);
     color-scheme: dark;
   }
