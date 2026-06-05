@@ -210,6 +210,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanssc.css">
   <title>NotEnoughMP</title>
+  <meta name="color-scheme" content="light" />
+  <meta name="supported-color-schemes" content="light" />
   <style>
     body {
       font-family: 'SUIT', 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
@@ -310,6 +312,18 @@
     --language-toggle-border: rgba(0, 0, 0, 0.08);
     --language-toggle-shadow: rgba(15, 17, 21, 0.18);
     color-scheme: light;
+    forced-color-adjust: none;
+  }
+
+  :global(*), :global(*::before), :global(*::after) {
+    forced-color-adjust: none;
+    color-adjust: exact;
+  }
+
+  @media (forced-colors: active) {
+    :global(*), :global(*::before), :global(*::after) {
+      forced-color-adjust: none;
+    }
   }
 
   :global(:root[data-theme='dark']) {
