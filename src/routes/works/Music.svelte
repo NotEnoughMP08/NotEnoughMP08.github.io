@@ -157,7 +157,9 @@
 
   onMount(() => {
     audio = new Audio();
+    audio.preload = 'auto';
     audio.src = src;
+    audio.load();
     audio.volume = 0.5;
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("timeupdate", handleTimeUpdate);
