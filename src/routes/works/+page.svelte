@@ -325,7 +325,7 @@
     },
     {
       embed: "https://www.youtube.com/embed/A9zaW2gLsoQ",
-      title: "ブルーアーカイブ】 Cherry Berry Merry Band Arrange cover",
+      title: "【ブルーアーカイブ】 Cherry Berry Merry Band Arrange cover",
       subtitle: "",
       credit: {
         title: "【Credit】",
