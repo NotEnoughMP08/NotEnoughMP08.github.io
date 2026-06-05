@@ -72,8 +72,10 @@ const dictionary: Record<Locale, TranslationRecord> = {
         works: {
             song: 'Song',
             bgm: 'BGM',
+            keyboard: 'Keyboard',
             original: 'Original',
-            arrange: 'Arrange'
+            arrange: 'Arrange',
+            keyboardVideoTitle: '[블루 아카이브] 🎵 2022 사운드 아카이브 음악회 🎵'
         },
         contact: {
             title: 'Contact',
@@ -144,8 +146,10 @@ const dictionary: Record<Locale, TranslationRecord> = {
         works: {
             song: 'Song',
             bgm: 'BGM',
+            keyboard: 'Keyboard',
             original: 'Original',
-            arrange: 'Arrange'
+            arrange: 'Arrange',
+            keyboardVideoTitle: '[Blue Archive] 🎵 2022 Sound Archive Concert 🎵'
         },
         contact: {
             title: 'Contact',
@@ -216,8 +220,10 @@ const dictionary: Record<Locale, TranslationRecord> = {
         works: {
             song: 'ソング',
             bgm: 'BGM',
+            keyboard: 'Keyboard',
             original: 'オリジナル',
-            arrange: 'アレンジ'
+            arrange: 'アレンジ',
+            keyboardVideoTitle: '[ブルーアカ] 🎵 2022 サウンドアーカイブ音楽会 🎵'
         },
         contact: {
             title: 'お問い合わせ',
@@ -288,8 +294,10 @@ const dictionary: Record<Locale, TranslationRecord> = {
         works: {
             song: '歌曲',
             bgm: '配乐',
+            keyboard: 'Keyboard',
             original: '原创',
-            arrange: '改编'
+            arrange: '改编',
+            keyboardVideoTitle: '[蔚蓝档案] 🎵 2022 音乐档案音乐会 🎵'
         },
         contact: {
             title: '联系',

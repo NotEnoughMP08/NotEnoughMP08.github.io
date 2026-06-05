@@ -49,6 +49,31 @@
     playingVideoIndex = playingVideoIndex === index ? null : index;
   }
 
+  let hoveredKeyboardVideoIndex: number | null = $state(null);
+  let playingKeyboardVideoIndex: number | null = $state(null);
+  let isKeyboardVideoHoverDelayed: number | null = $state(null);
+  let keyboardVideoHoverTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  function handleKeyboardVideoMouseEnter(index: number) {
+    hoveredKeyboardVideoIndex = index;
+    if (keyboardVideoHoverTimeout) clearTimeout(keyboardVideoHoverTimeout);
+    keyboardVideoHoverTimeout = setTimeout(() => {
+      isKeyboardVideoHoverDelayed = index;
+    }, 300);
+  }
+
+  function handleKeyboardVideoMouseLeave(index: number) {
+    if (keyboardVideoHoverTimeout) clearTimeout(keyboardVideoHoverTimeout);
+    if (playingKeyboardVideoIndex !== index) {
+      hoveredKeyboardVideoIndex = null;
+      isKeyboardVideoHoverDelayed = null;
+    }
+  }
+
+  function handleKeyboardVideoClick(index: number) {
+    playingKeyboardVideoIndex = playingKeyboardVideoIndex === index ? null : index;
+  }
+
   function handleArrangeVideoMouseEnter(index: number) {
     hoveredArrangeVideoIndex = index;
     if (arrangeVideoHoverTimeout) clearTimeout(arrangeVideoHoverTimeout);
@@ -243,6 +268,25 @@
       }
     }
   ];
+
+  const keyboardVideos = [
+    {
+      embed: "https://www.youtube.com/embed/JTZukgkKKz4?si=RyXhmTc28AQssm_w",
+      titleKey: "works.keyboardVideoTitle",
+      subtitle: "",
+      credit: {
+        title: "【Credit】",
+        details: [
+          "Arranged: Mitsukiyo",
+          "Piano: NEMP, Kiriken",
+          "Guitar: NezMayo, JuNN",
+          "Bass: Kyunghwan Yoo",
+          "Drum: Lee_ShibaInu",
+          "Vocal: Raon"
+        ]
+      }
+    }
+  ];
 </script>
 
 <Header />
@@ -411,6 +455,41 @@
         </div>
       {/each}
     </div>
+  </div>
+  <div class="title">{$t("works.keyboard")}</div>
+  <div class="content">
+    {#if keyboardVideos.length}
+      <div class="videos-section videos-section-before">
+        <div class="videos-grid">
+          {#each keyboardVideos as video, index (video.embed)}
+            <div class="video-card" role="button" tabindex="0" onmouseenter={() => handleKeyboardVideoMouseEnter(index)} onmouseleave={() => handleKeyboardVideoMouseLeave(index)} onclick={() => handleKeyboardVideoClick(index)} onkeydown={(e) => e.key === 'Enter' && handleKeyboardVideoClick(index)}>
+              <div class="featured-video-embed">
+                <iframe
+                  title={$t(video.titleKey)}
+                  src={video.embed}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="featured-video-info">
+                <div class="featured-video-title">{$t(video.titleKey)}</div>
+                {#if video.subtitle}
+                  <div class="featured-video-subtitle">{video.subtitle}</div>
+                {/if}
+                {#if video.credit}
+                  <div class="video-credit" class:visible={isKeyboardVideoHoverDelayed === index || playingKeyboardVideoIndex === index}>
+                    <div class="video-credit-title">{video.credit.title}</div>
+                    {#each video.credit.details as detail}
+                      <div class="video-credit-detail">{detail}</div>
+                    {/each}
+                  </div>
+                {/if}
+              </div>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
   </div>
 </div>
 
